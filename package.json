@@ -11,5 +11,13 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
     "parcel": "^2.7.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafalfalandys/recipes-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rafalfalandys/recipes-app/issues"
+  },
+  "homepage": "https://github.com/rafalfalandys/recipes-app#readme"
 }

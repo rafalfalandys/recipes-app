@@ -1,4 +1,4 @@
-import { API_URL } from "./config";
+import { API_URL, RESULTS_PER_PAGE } from "./config";
 
 // https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza //search results
 
@@ -62,6 +62,9 @@ export const loadSearchResults = async function (query) {
   }
 };
 
-export const splitResultsByPages = function () {
-  state.searchResults.results.sli;
+export const getResultsPerPage = function (page) {
+  state.searchResults.page = page;
+  const start = (page - 1) * RESULTS_PER_PAGE;
+  const end = page * RESULTS_PER_PAGE;
+  return state.searchResults.results.slice(start, end);
 };

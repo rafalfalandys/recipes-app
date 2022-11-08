@@ -14,7 +14,10 @@ const controlRecipe = async function () {
 const controlSearchResults = async function () {
   const query = searchView.getQuery();
   await model.loadSearchResults(query);
-  searchResultsView.render(model.state.searchResults.results);
+  const resultsAfterPagination = model.getResultsPerPage(
+    model.state.searchResults.page
+  );
+  searchResultsView.render(resultsAfterPagination);
 };
 
 const init = function () {
