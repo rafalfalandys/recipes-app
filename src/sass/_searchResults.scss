@@ -1,0 +1,25 @@
+.search-results {
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+}
+
+.results {
+  // width: 25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-right: 0.5rem;
+}
+
+.pagination {
+  margin-top: auto;
+}
+
+.copyright {
+  // margin: 2rem;
+  padding: 1.5rem;
+  width: 100%;
+  font-size: $font-smallest;
+  color: $color-grey;
+}

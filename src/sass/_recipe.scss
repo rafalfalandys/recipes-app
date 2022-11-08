@@ -1,0 +1,106 @@
+.recipe {
+  width: 100%;
+  font-size: $font-small;
+
+  &--image {
+    height: 25rem;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 30%) skewY(-6deg);
+    text-align: center;
+    width: 70%;
+    font-size: $font-large;
+    font-style: italic;
+    z-index: 1;
+
+    span {
+      color: $color-grey-dark;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: slice;
+      padding: 0 1.2rem;
+      line-height: 130%;
+      background-color: rgba($color-grey-light, 0.7);
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    padding: 6rem 3rem 2rem 3rem;
+  }
+
+  &__info {
+    display: flex;
+    // font-size: $font-small;
+
+    &-icon {
+      height: $icon-medium;
+      width: $icon-medium;
+      fill: $color-grey-dark;
+      margin-right: 1rem;
+    }
+
+    &--text {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__ingredients {
+    border-top: 1px solid $color-grey;
+    padding: 3rem 3rem 5rem 3rem;
+
+    &__list {
+      display: grid;
+      gap: 0 4rem;
+      grid-template-columns: 1fr 1fr;
+      padding: 0 2rem;
+      line-height: 3rem;
+    }
+  }
+
+  &__directions {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+
+    &--text {
+      line-height: 200%;
+    }
+
+    &__btn {
+      margin: 4rem auto 3rem auto;
+      width: auto;
+      background-color: rgba($color-grey-light-very, 1);
+      border-radius: 10rem;
+
+      span {
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+    }
+  }
+
+  &--publisher {
+    font-weight: 700;
+    color: $color-grey-dark;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    //   border-radius: $border-radius-small;
+    padding: 0 0.5rem;
+    background-color: rgba($color-grey-light, 0.7);
+    transform: skewY(-5deg);
+    display: inline-block;
+  }
+}

@@ -1,0 +1,44 @@
+.header {
+  grid-column: 1/3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: $font-large;
+  margin-left: 2rem;
+}
+
+.search {
+  padding: 1rem;
+  display: flex;
+
+  &__field {
+    border: none;
+    width: 19rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-grey;
+    }
+  }
+
+  &__btn {
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: left;
+  gap: 1rem;
+  margin-right: 1rem;
+}
