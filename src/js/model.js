@@ -9,7 +9,7 @@ export const state = {
   searchResults: {
     query: "",
     results: [],
-    page: 2,
+    page: 1,
     // resultsPerPage:
   },
   bookmarks: [],
@@ -67,4 +67,5 @@ export const getResultsPerPage = function (page) {
   const start = (page - 1) * RESULTS_PER_PAGE;
   const end = page * RESULTS_PER_PAGE;
   return state.searchResults.results.slice(start, end);
+  console.log(state.searchResults.results.slice(start, end));
 };
