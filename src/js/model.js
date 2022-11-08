@@ -9,7 +9,7 @@ export const state = {
   searchResults: {
     query: "",
     results: [],
-    page: 1,
+    page: 2,
     // resultsPerPage:
   },
   bookmarks: [],
