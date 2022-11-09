@@ -1,7 +1,7 @@
 .search-results {
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
+  // justify-items: flex-start;
 }
 
 .results {
@@ -12,14 +12,17 @@
   margin-right: 0.5rem;
 }
 
-.pagination {
-  margin-top: auto;
-}
-
 .copyright {
   // margin: 2rem;
   padding: 1.5rem;
   width: 100%;
   font-size: $font-smallest;
   color: $color-grey;
+}
+
+.pagination {
+  margin: 3rem 2rem auto 2rem;
+  position: relative;
+
+  //then goes buttons from components
 }

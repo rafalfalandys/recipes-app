@@ -11,6 +11,7 @@ export const state = {
     results: [],
     page: 1,
     // resultsPerPage:
+    pagesQty: 1,
   },
   bookmarks: [],
 };
@@ -42,9 +43,6 @@ export const loadRecipe = async function (id) {
 // Search Results
 export const loadSearchResults = async function (query) {
   try {
-    // const res = await fetch(
-    //   `https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza`
-    // );
     const res = await fetch(`${API_URL}?search=${query}`);
     const json = await res.json();
     const searchResults = json.data.recipes;
@@ -62,8 +60,13 @@ export const loadSearchResults = async function (query) {
   }
 };
 
-export const getResultsPerPage = function (page) {
-  state.searchResults.page = page;
+export const countPages = function () {
+  const resultsQty = state.searchResults.results.length;
+  state.searchResults.pagesQty = Math.ceil(resultsQty / RESULTS_PER_PAGE);
+};
+
+export const getResultsPerPage = function (page = state.searchResults.page) {
+  // state.searchResults.page = page;
   const start = (page - 1) * RESULTS_PER_PAGE;
   const end = page * RESULTS_PER_PAGE;
   return state.searchResults.results.slice(start, end);

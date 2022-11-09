@@ -1,7 +1,8 @@
 // button - general
 .btn {
   transition: all 0.4s;
-  background-color: $color-base-white;
+  // background-color: $color-base-white;
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   // border-radius: $border-radius-small;
   font-size: $font-medium;
@@ -43,5 +44,34 @@
   }
   &:active {
     transform: scale(1);
+  }
+}
+
+.pagination {
+  .btn {
+    position: absolute; // I've used abs. pos. because I couldn't manage with flex
+    gap: 0;
+    padding: 0.5rem 1.4rem;
+    text-transform: lowercase;
+    font-size: $font-small;
+    background-color: $color-grey-light-very;
+    border-radius: 10rem;
+    color: $color-grey;
+
+    span {
+      color: inherit;
+    }
+
+    &:hover {
+      color: $color-grey-dark;
+    }
+
+    &--prev {
+      left: 0;
+    }
+
+    &--next {
+      right: 0;
+    }
   }
 }
