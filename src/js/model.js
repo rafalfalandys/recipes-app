@@ -9,7 +9,7 @@ export const state = {
   searchResults: {
     query: "",
     results: [],
-    page: 1,
+    page: 2,
     // resultsPerPage:
     pagesQty: 1,
   },
@@ -18,12 +18,8 @@ export const state = {
 
 export const loadRecipe = async function (id) {
   try {
-    console.log(id);
-    console.log(`${API_URL}${id}`);
     const res = await fetch(`${API_URL}${id}`);
-    console.log(res);
     const json = await res.json();
-    console.log(json);
     const recipeData = json.data.recipe;
     state.recipe = {
       cookingTime: recipeData.cooking_time,
@@ -54,7 +50,6 @@ export const loadSearchResults = async function (query) {
         title: recipe.title,
       };
     });
-    console.log(state.searchResults);
   } catch (err) {
     console.log(err);
   }
@@ -71,4 +66,8 @@ export const getResultsPerPage = function (page = state.searchResults.page) {
   const end = page * RESULTS_PER_PAGE;
   return state.searchResults.results.slice(start, end);
   console.log(state.searchResults.results.slice(start, end));
+};
+
+export const changePage = function (isNext) {
+  return isNext ? state.searchResults.page++ : state.searchResults.page--;
 };

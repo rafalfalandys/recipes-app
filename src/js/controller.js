@@ -5,13 +5,19 @@ import searchView from "./views/searchView.js";
 import paginationView from "./views/paginationView.js";
 import { RESULTS_PER_PAGE } from "./config.js";
 
+////////////////////////////////////////////////////////////
+////////////////////// Control recipe //////////////////////
+////////////////////////////////////////////////////////////
+
 const controlRecipe = async function () {
   const id = window.location.hash.slice(1);
-  console.log(id);
   await model.loadRecipe(id);
-  console.log(model.state);
   recipeView.render(model.state.recipe);
 };
+
+////////////////////////////////////////////////////////////
+////////////////// Control search results //////////////////
+////////////////////////////////////////////////////////////
 
 const controlSearchResults = async function () {
   // 1) get query and set it to model
@@ -26,16 +32,33 @@ const controlSearchResults = async function () {
   searchResultsView.render(model.getResultsPerPage());
 
   // 4) render pagination
-
-  console.log(model.state.searchResults);
-
   paginationView.render(model.state.searchResults);
 };
+
+////////////////////////////////////////////////////////////
+//////////////////// Control pagination ////////////////////
+////////////////////////////////////////////////////////////
+
+const controlPagination = function (isNext) {
+  // 1) modify state
+  model.changePage(isNext);
+
+  // 2) render search resutls again
+  searchResultsView.render(model.getResultsPerPage());
+
+  // 3) render pagination
+  paginationView.render(model.state.searchResults);
+};
+
+////////////////////////////////////////////////////////////
+/////////////////////////// Init ///////////////////////////
+////////////////////////////////////////////////////////////
 
 const init = function () {
   // controlRecipe();
   searchView.addHandlerSearch(controlSearchResults);
   recipeView.addHandlerUrlChange(controlRecipe);
+  paginationView.addHandlerPageChange(controlPagination);
 };
 
 init();

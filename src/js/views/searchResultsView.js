@@ -20,7 +20,6 @@ class SearchResultsView extends View {
   }
 
   _generateMarkup(recipesArr) {
-    console.log(recipesArr);
     return `
     ${recipesArr.map((recipe) => this._generateSinglePreview(recipe)).join(" ")}
     `;

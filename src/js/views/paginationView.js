@@ -4,11 +4,13 @@ import * as model from "../model.js";
 
 class PaginationView extends View {
   _parentEl = document.querySelector(".pagination");
-  _data = model.state.searchResults;
 
-  constructor() {
-    super();
-    console.log(this._data);
+  addHandlerPageChange(handler) {
+    this._parentEl.addEventListener("click", function (e) {
+      const btn = e.target.closest(".btn");
+      if (!btn) return;
+      return handler(btn.classList.contains("btn--next"));
+    });
   }
 
   // In this function I wanted to bind 'this', skip the data parameter and use _data instead. I failed with binding the keyword, so I just passed the data parameter through:
