@@ -51,6 +51,7 @@
   .btn {
     position: absolute; // I've used abs. pos. because I couldn't manage with flex
     gap: 0;
+    top: 2rem;
     padding: 0.5rem 1.4rem;
     font-size: $font-small;
     background-color: $color-grey-light-very;
@@ -72,5 +73,27 @@
     &--next {
       right: 0;
     }
+  }
+}
+
+.spinner {
+  margin: 8rem auto;
+  text-align: center;
+
+  svg {
+    fill: $color-grey;
+    width: 5rem;
+    height: 5rem;
+    animation: rotate 2s infinite linear;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

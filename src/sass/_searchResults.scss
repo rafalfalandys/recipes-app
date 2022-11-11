@@ -4,26 +4,19 @@
   // justify-items: flex-start;
 }
 
-.results {
-  // width: 25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-right: 0.5rem;
-}
-
-.copyright {
-  // margin: 2rem;
-  padding: 1.5rem;
-  width: 100%;
-  font-size: $font-smallest;
-  color: $color-grey;
-}
-
 .pagination {
   margin: auto 2rem 5rem 2rem;
   position: relative;
   // height: 5rem;
 
   //then goes buttons from components
+}
+
+.copyright {
+  // margin: 2rem;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  font-size: $font-smallest;
+  color: $color-grey;
 }

@@ -1,3 +1,5 @@
+import icons from "../../img/sprite.svg";
+
 export default class View {
   _data;
 
@@ -11,6 +13,20 @@ export default class View {
     this._parentEl.insertAdjacentHTML(
       "afterbegin",
       this._generateMarkup(this._data)
+    );
+  }
+
+  renderSpinner() {
+    this._clearView();
+    this._parentEl.insertAdjacentHTML(
+      "afterbegin",
+      `
+    <div class="spinner">
+      <svg>
+        <use xlink:href="${icons}#icon-loader"></use>
+      </svg>
+    </div>
+    `
     );
   }
 }

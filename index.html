@@ -34,18 +34,50 @@
           </button>
         </form>
         <div class="nav">
-          <button class="add-recipe nav__btn btn">
+          <button class="btn nav__btn nav--add-recipe">
             <svg class="btn--icon">
               <use xlink:href="src/img/sprite.svg#icon-show-sidebar"></use>
             </svg>
             <span>Add Recipe</span>
           </button>
-          <button class="bookmarks-btn nav__btn btn">
+          <button class="btn nav__btn nav--bookmarks">
             <svg class="btn--icon">
               <use xlink:href="src/img/sprite.svg#icon-bookmark-outline"></use>
             </svg>
             <span>Bookmarks</span>
           </button>
+
+          <!-- -------------------- bookmarks ---------------------- -->
+
+          <div class="bookmarks">
+            <div class="results results--bookmarks">
+              <div class="preview">
+                <figure class="preview--image">
+                  <img
+                    src="https://images.unsplash.com/photo-1652288282543-0fc019cfc457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                    alt="pizza"
+                  />
+                </figure>
+                <h3 class="preview__data preview__data--title">
+                  Żurek 'nad Żurkami'
+                </h3>
+                <p class="preview__data preview__data--publisher">Nusia</p>
+              </div>
+
+              <div class="preview">
+                <figure class="preview--image">
+                  <img
+                    src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+                    alt="pizza"
+                  />
+                </figure>
+                <h3 class="preview__data preview__data--title">
+                  Pizza 'Pizzka'
+                </h3>
+                <p class="preview__data preview__data--publisher">Fala</p>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -54,7 +86,7 @@
       <!-- -------------------------------------------------- -->
 
       <div class="search-results">
-        <div class="results">
+        <div class="results results--link">
           <div class="preview">
             <figure class="preview--image">
               <img
@@ -62,8 +94,10 @@
                 alt="pizza"
               />
             </figure>
-            <h3 class="preview--title">Żurek 'nad Żurkami'</h3>
-            <p class="preview--data">Nusia</p>
+            <h3 class="preview__data preview__data--title">
+              Żurek 'nad Żurkami'
+            </h3>
+            <p class="preview__data preview__data--publisher">Nusia</p>
           </div>
 
           <div class="preview">
@@ -73,10 +107,17 @@
                 alt="pizza"
               />
             </figure>
-            <h3 class="preview--title">Pizza 'Pizzka'</h3>
-            <p class="preview--data">Fala</p>
+            <h3 class="preview__data preview__data--title">Pizza 'Pizzka'</h3>
+            <p class="preview__data preview__data--publisher">Fala</p>
           </div>
         </div>
+
+        <!-- <div class="spinner">
+          <svg>
+            <use xlink:href="src/img/sprite.svg#icon-loader"></use>
+          </svg>
+        </div> -->
+
         <div class="pagination">
           <button class="btn--prev btn">
             &larr; Page&nbsp;<span class="page-btn-no">1</span>
@@ -118,7 +159,7 @@
             <span>&nbsp;minutes</span>
           </div>
 
-          <div class="recipe__info">
+          <div class="recipe__info recipe--servings">
             <svg
               class="recipe__info-icon recipe__info-icon--man-plus icon-hover"
             >
@@ -127,7 +168,7 @@
             <span class="recipe__info--data">4</span>
             <span class="recipe__info--text">&nbsp;servings</span>
             <svg
-              class="recipe__info-icon recipe__info-icon--man-plus icon-hover"
+              class="recipe__info-icon recipe__info-icon--man-minus icon-hover"
             >
               <use xlink:href="src/img/sprite.svg#icon-minus-outline"></use>
             </svg>

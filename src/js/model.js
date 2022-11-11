@@ -71,3 +71,7 @@ export const getResultsPerPage = function (page = state.searchResults.page) {
 export const changePage = function (isNext) {
   return isNext ? state.searchResults.page++ : state.searchResults.page--;
 };
+
+export const changeServings = function (addOrRemove) {
+  return addOrRemove ? state.recipe.servings++ : state.recipe.servings--;
+};

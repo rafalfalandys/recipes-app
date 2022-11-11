@@ -8,6 +8,15 @@ class RecipeView extends View {
     window.addEventListener("hashchange", handler);
   }
 
+  addHandlerServingsChange(handler) {
+    this._parentEl.addEventListener("click", function (e) {
+      const btn = e.target.closest(".recipe__info-icon");
+      if (!btn) return;
+      //returns true if plus btn pressed and false if minus
+      return handler(btn.classList.contains("recipe__info-icon--man-plus"));
+    });
+  }
+
   // generating HTML for each ingredient
   _generateMarkupIngredients(ing) {
     return `
@@ -52,16 +61,16 @@ class RecipeView extends View {
             <span>&nbsp;minutes</span>
           </div>
 
-          <div class="recipe__info">
+          <div class="recipe__info recipe--servings">
             <svg
-              class="recipe__info-icon recipe__info-icon--man-plus icon-hover"
+              class="recipe__info-icon recipe__info-icon--man-plus"
             >
               <use xlink:href="${icons}#icon-user-add"></use>
             </svg>
             <span class="recipe__info--data">${data.servings}</span>
             <span class="recipe__info--text">&nbsp;servings</span>
             <svg
-              class="recipe__info-icon recipe__info-icon--man-plus icon-hover"
+              class="recipe__info-icon recipe__info-icon--man-minus icon-hover"
             >
               <use xlink:href="${icons}#icon-minus-outline"></use>
             </svg>

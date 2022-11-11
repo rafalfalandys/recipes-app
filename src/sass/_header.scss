@@ -5,6 +5,7 @@
   align-items: center;
   width: 100%;
   gap: 2rem;
+  position: relative;
 }
 
 .logo {
@@ -41,4 +42,26 @@
   justify-content: left;
   gap: 1rem;
   margin-right: 1rem;
+  height: 100%;
+
+  // &--bookmarks {
+  // }
+}
+
+.bookmarks {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  visibility: hidden;
+  opacity: 0;
+  max-width: 40rem;
+  transition: all 0.4s;
+
+  &:hover,
+  .nav--bookmarks:hover + & {
+    visibility: visible;
+    opacity: 1;
+  }
 }

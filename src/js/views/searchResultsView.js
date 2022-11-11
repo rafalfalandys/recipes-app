@@ -2,7 +2,7 @@ import View from "./view.js";
 // import icons from "../../img/sprite.svg";
 
 class SearchResultsView extends View {
-  _parentEl = document.querySelector(".results");
+  _parentEl = document.querySelector(".results--link");
 
   _generateSinglePreview(recipe) {
     return `

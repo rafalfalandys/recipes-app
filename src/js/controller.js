@@ -3,16 +3,29 @@ import recipeView from "./views/recipeView.js";
 import searchResultsView from "./views/searchResultsView.js";
 import searchView from "./views/searchView.js";
 import paginationView from "./views/paginationView.js";
-import { RESULTS_PER_PAGE } from "./config.js";
 
 ////////////////////////////////////////////////////////////
 ////////////////////// Control recipe //////////////////////
 ////////////////////////////////////////////////////////////
 
 const controlRecipe = async function () {
+  // 1) render spinner
+  recipeView.renderSpinner();
+
   const id = window.location.hash.slice(1);
+
   await model.loadRecipe(id);
+
   recipeView.render(model.state.recipe);
+  console.log(model.state.recipe);
+};
+
+////////////////// Change servings //////////////////
+
+const controlServingsChange = function (addOrRemove) {
+  model.changeServings(addOrRemove);
+  recipeView.render(model.state.recipe);
+  // console.log(model.state.recipe.servings);
 };
 
 ////////////////////////////////////////////////////////////
@@ -20,18 +33,21 @@ const controlRecipe = async function () {
 ////////////////////////////////////////////////////////////
 
 const controlSearchResults = async function () {
-  // 1) get query and set it to model
+  // 1) render spinner
+  searchResultsView.renderSpinner();
+
+  // 2) get query and set it to model
   const query = searchView.getQuery();
   model.state.searchResults.query = query;
 
-  // 2) LOAD SEARCH RESULTS and count pages
+  // 3) LOAD SEARCH RESULTS and count pages
   await model.loadSearchResults(query);
   model.countPages();
 
-  // 3) render page of recipes
+  // 4) render page of recipes
   searchResultsView.render(model.getResultsPerPage());
 
-  // 4) render pagination
+  // 5) render pagination
   paginationView.render(model.state.searchResults);
 };
 
@@ -58,6 +74,7 @@ const init = function () {
   // controlRecipe();
   searchView.addHandlerSearch(controlSearchResults);
   recipeView.addHandlerUrlChange(controlRecipe);
+  recipeView.addHandlerServingsChange(controlServingsChange);
   paginationView.addHandlerPageChange(controlPagination);
 };
 
