@@ -1,5 +1,6 @@
 import icons from "../../img/sprite.svg";
 import View from "./view";
+import { Fraction } from "fractional";
 
 class RecipeView extends View {
   _parentEl = document.querySelector(".recipe");
@@ -28,7 +29,7 @@ class RecipeView extends View {
             ing.quantity ? "-" : ""
           }</span>
           <span class="recipe__ingredient--qty">${
-            ing.quantity ? ing.quantity : ""
+            ing.quantity ? new Fraction(ing.quantity) : ""
           }</span>
           <span class="recipe__ingredient--unit">${ing.unit}</span>
         </li>

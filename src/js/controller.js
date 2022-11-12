@@ -17,7 +17,6 @@ const controlRecipe = async function () {
   await model.loadRecipe(id);
 
   recipeView.render(model.state.recipe);
-  console.log(model.state.recipe);
 };
 
 ////////////////// Change servings //////////////////
@@ -33,22 +32,25 @@ const controlServingsChange = function (addOrRemove) {
 ////////////////////////////////////////////////////////////
 
 const controlSearchResults = async function () {
-  // 1) render spinner
-  searchResultsView.renderSpinner();
+  try {
+    // 1) render spinner
+    searchResultsView.renderSpinner();
 
-  // 2) get query and set it to model
-  const query = searchView.getQuery();
-  model.state.searchResults.query = query;
+    // 2) get query and set it to model
+    const query = searchView.getQuery();
+    model.state.searchResults.query = query;
 
-  // 3) LOAD SEARCH RESULTS and count pages
-  await model.loadSearchResults(query);
-  model.countPages();
+    // 3) LOAD SEARCH RESULTS and count pages
+    await model.loadSearchResults(query);
 
-  // 4) render page of recipes
-  searchResultsView.render(model.getResultsPerPage());
+    // 4) render page of recipes
+    searchResultsView.render(model.getResultsPerPage());
 
-  // 5) render pagination
-  paginationView.render(model.state.searchResults);
+    // 5) render pagination
+    paginationView.render(model.state.searchResults);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 ////////////////////////////////////////////////////////////

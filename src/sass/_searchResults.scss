@@ -1,22 +1,21 @@
 .search-results {
   display: flex;
   flex-direction: column;
-  // justify-items: flex-start;
 }
 
 .pagination {
   margin: auto 2rem 5rem 2rem;
   position: relative;
-  // height: 5rem;
 
   //then goes buttons from components
 }
 
 .copyright {
   // margin: 2rem;
-  margin-top: 1rem;
+  // margin-top: auto;
   padding: 1.5rem;
   width: 100%;
   font-size: $font-smallest;
   color: $color-grey;
+  height: auto;
 }

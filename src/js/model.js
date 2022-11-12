@@ -42,6 +42,7 @@ export const loadSearchResults = async function (query) {
     const res = await fetch(`${API_URL}?search=${query}`);
     const json = await res.json();
     const searchResults = json.data.recipes;
+    state.searchResults.page = 1;
     state.searchResults.results = searchResults.map((recipe) => {
       return {
         id: recipe.id,
@@ -55,17 +56,14 @@ export const loadSearchResults = async function (query) {
   }
 };
 
-export const countPages = function () {
+export const getResultsPerPage = function (page = state.searchResults.page) {
+  // count pages
   const resultsQty = state.searchResults.results.length;
   state.searchResults.pagesQty = Math.ceil(resultsQty / RESULTS_PER_PAGE);
-};
 
-export const getResultsPerPage = function (page = state.searchResults.page) {
-  // state.searchResults.page = page;
   const start = (page - 1) * RESULTS_PER_PAGE;
   const end = page * RESULTS_PER_PAGE;
   return state.searchResults.results.slice(start, end);
-  console.log(state.searchResults.results.slice(start, end));
 };
 
 export const changePage = function (isNext) {
@@ -73,5 +71,14 @@ export const changePage = function (isNext) {
 };
 
 export const changeServings = function (addOrRemove) {
-  return addOrRemove ? state.recipe.servings++ : state.recipe.servings--;
+  const curServings = state.recipe.servings;
+  let newServings;
+  if (addOrRemove) newServings = curServings + 1;
+  if (!addOrRemove && curServings < 2) return;
+  if (!addOrRemove) newServings = curServings - 1;
+  state.recipe.servings = newServings;
+
+  state.recipe.ingredients.forEach(
+    (ing) => (ing.quantity = (ing.quantity / curServings) * newServings)
+  );
 };

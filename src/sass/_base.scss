@@ -45,10 +45,12 @@ body {
 
 .main-container {
   background-color: $color-base-white;
+  min-height: 50rem;
   max-width: 90rem;
   margin: 1.5rem auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto 1fr;
   justify-items: start;
   border-radius: 4px;
   // gap: 2rem;

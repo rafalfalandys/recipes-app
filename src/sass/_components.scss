@@ -51,7 +51,7 @@
   .btn {
     position: absolute; // I've used abs. pos. because I couldn't manage with flex
     gap: 0;
-    top: 2rem;
+    // bottom: 0; // sth weird is hapening here
     padding: 0.5rem 1.4rem;
     font-size: $font-small;
     background-color: $color-grey-light-very;
@@ -96,4 +96,11 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.placeholder {
+  text-align: center;
+  margin: 5rem;
+  font-size: $font-medium;
+  color: $color-grey;
 }
