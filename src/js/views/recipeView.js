@@ -30,7 +30,7 @@ class RecipeView extends View {
             ing.quantity ? "-" : ""
           }</span>
           <span class="recipe__ingredient--qty">${
-            ing.quantity ? new Fraction(ing.quantity) : ""
+            ing.quantity ? ing.quantity : ""
           }</span>
           <span class="recipe__ingredient--unit">${ing.unit}</span>
         </li>
