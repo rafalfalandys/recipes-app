@@ -2,9 +2,9 @@
   "name": "recipes",
   "version": "1.0.0",
   "description": "search over lot of recipes from web api",
-  "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "Rafal Falandys",
   "license": "ISC",

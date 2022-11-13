@@ -49,7 +49,6 @@ const controlSearchResults = async function () {
 
     // 3) LOAD SEARCH RESULTS and count pages
     await model.loadSearchResults(query);
-    console.log(model.searchResults);
 
     // 4) render page of recipes
     searchResultsView.render(model.getResultsPerPage());
