@@ -1,5 +1,5 @@
 import { mark } from "regenerator-runtime";
-import icons from "../../img/sprite.svg";
+import icons from "url:../../img/sprite.svg";
 
 export default class View {
   _data;

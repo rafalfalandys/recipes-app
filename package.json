@@ -23,7 +23,6 @@
   "homepage": "https://github.com/rafalfalandys/recipes-app#readme",
   "dependencies": {
     "core-js": "^3.26.0",
-    "fractional": "^1.0.0",
     "fracty": "^1.0.11",
     "regenerator-runtime": "^0.13.10"
   }

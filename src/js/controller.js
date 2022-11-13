@@ -18,10 +18,10 @@ const controlRecipe = async function () {
 
     // 3) load recipe
     await model.loadRecipe(id);
-
     // 4) render
     recipeView.render(model.state.recipe);
   } catch (error) {
+    console.log(error);
     recipeView.renderError();
   }
 };
