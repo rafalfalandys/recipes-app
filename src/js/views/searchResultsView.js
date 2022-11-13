@@ -20,6 +20,8 @@ class SearchResultsView extends View {
   }
 
   _generateMarkup(recipesArr) {
+    if (recipesArr.length === 0)
+      return '<div class="message">No recipes found. Search again</div>';
     return `
     ${recipesArr.map((recipe) => this._generateSinglePreview(recipe)).join(" ")}
     `;

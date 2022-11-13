@@ -31,8 +31,8 @@ export const loadRecipe = async function (id) {
       url: recipeData.source_url,
       title: recipeData.title,
     };
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    throw new Error();
   }
 };
 
@@ -40,6 +40,7 @@ export const loadRecipe = async function (id) {
 export const loadSearchResults = async function (query) {
   try {
     const res = await fetch(`${API_URL}?search=${query}`);
+    if (!res) throw new Error();
     const json = await res.json();
     const searchResults = json.data.recipes;
     state.searchResults.page = 1;
@@ -52,6 +53,7 @@ export const loadSearchResults = async function (query) {
       };
     });
   } catch (err) {
+    throw new Error();
     console.log(err);
   }
 };

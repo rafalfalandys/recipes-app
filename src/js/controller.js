@@ -9,14 +9,21 @@ import paginationView from "./views/paginationView.js";
 ////////////////////////////////////////////////////////////
 
 const controlRecipe = async function () {
-  // 1) render spinner
-  recipeView.renderSpinner();
+  try {
+    // 1) render spinner
+    recipeView.renderSpinner();
 
-  const id = window.location.hash.slice(1);
+    // 2) get id from url
+    const id = window.location.hash.slice(1);
 
-  await model.loadRecipe(id);
+    // 3) load recipe
+    await model.loadRecipe(id);
 
-  recipeView.render(model.state.recipe);
+    // 4) render
+    recipeView.render(model.state.recipe);
+  } catch (error) {
+    recipeView.renderError();
+  }
 };
 
 ////////////////// Change servings //////////////////
@@ -42,6 +49,7 @@ const controlSearchResults = async function () {
 
     // 3) LOAD SEARCH RESULTS and count pages
     await model.loadSearchResults(query);
+    console.log(model.searchResults);
 
     // 4) render page of recipes
     searchResultsView.render(model.getResultsPerPage());
@@ -49,6 +57,7 @@ const controlSearchResults = async function () {
     // 5) render pagination
     paginationView.render(model.state.searchResults);
   } catch (err) {
+    // throw new Error();
     console.log(err);
   }
 };

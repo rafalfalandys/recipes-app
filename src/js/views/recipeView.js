@@ -4,6 +4,7 @@ import { Fraction } from "fractional";
 
 class RecipeView extends View {
   _parentEl = document.querySelector(".recipe");
+  _errorMessage = "We could not find that recipe, please try another one";
 
   addHandlerUrlChange(handler) {
     window.addEventListener("hashchange", handler);

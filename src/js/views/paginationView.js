@@ -23,7 +23,7 @@ class PaginationView extends View {
 
   _generateMarkup(data) {
     // if page is one and only
-    if (data.page === 1 && data.pagesQty === 1) return " ";
+    if (data.page === 1 && data.pagesQty < 2) return " ";
 
     // if page is one and there are others
     if (data.page === 1 && data.pagesQty > data.page)

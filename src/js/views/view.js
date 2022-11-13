@@ -1,3 +1,4 @@
+import { mark } from "regenerator-runtime";
 import icons from "../../img/sprite.svg";
 
 export default class View {
@@ -28,5 +29,19 @@ export default class View {
     </div>
     `
     );
+  }
+
+  renderError() {
+    const markup = `
+      <div class="message">
+        <svg class="btn--icon">
+          <use xlink:href="src/img/${icons}#icon-alert-triangle"></use>
+        </svg>
+        <span>${this._errorMessage}</span>
+      </div>
+      `;
+
+    this._clearView();
+    this._parentEl.insertAdjacentHTML("afterbegin", markup);
   }
 }

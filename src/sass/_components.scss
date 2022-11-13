@@ -49,9 +49,9 @@
 
 .pagination {
   .btn {
-    position: absolute; // I've used abs. pos. because I couldn't manage with flex
+    position: absolute;
     gap: 0;
-    // bottom: 0; // sth weird is hapening here
+    bottom: 0;
     padding: 0.5rem 1.4rem;
     font-size: $font-small;
     background-color: $color-grey-light-very;
@@ -98,9 +98,16 @@
   }
 }
 
-.placeholder {
+.message {
   text-align: center;
   margin: 5rem;
   font-size: $font-medium;
   color: $color-grey;
+}
+
+.test-div {
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  font-size: $font-large;
 }
