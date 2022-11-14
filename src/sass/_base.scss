@@ -13,6 +13,7 @@ $font-medium: 1.6rem;
 $font-large: 4rem;
 
 $border-radius-small: 2px;
+$border-radius: 4px;
 
 $icon-medium: 1.7rem;
 
@@ -54,7 +55,7 @@ body {
   grid-template-columns: 1fr 2fr;
   grid-template-rows: auto 1fr;
   justify-items: start;
-  border-radius: 4px;
-  overflow: hidden;
+  border-radius: $border-radius;
+  // overflow: hidden;
   // gap: 2rem;
 }
