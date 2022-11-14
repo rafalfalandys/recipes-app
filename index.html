@@ -18,64 +18,65 @@
       <!-- -------------------------------------------------- -->
       <!-- -------------------- header ---------------------- -->
       <!-- -------------------------------------------------- -->
+      <header class="header__container">
+        <div class="header">
+          <div class="logo">Logo</div>
+          <form class="search">
+            <input
+              type="text"
+              class="search__field"
+              placeholder="Search over 1,000,000 recipes..."
+            />
+            <button class="search__btn btn">
+              <svg class="btn--icon">
+                <use xlink:href="src/img/sprite.svg#icon-search"></use>
+              </svg>
+              <span>Search</span>
+            </button>
+          </form>
+          <div class="nav">
+            <button class="btn nav__btn nav--add-recipe">
+              <svg class="btn--icon">
+                <use xlink:href="src/img/sprite.svg#icon-show-sidebar"></use>
+              </svg>
+              <span>Add Recipe</span>
+            </button>
+            <button class="btn nav__btn nav--bookmarks">
+              <svg class="btn--icon">
+                <use xlink:href="src/img/sprite.svg#icon-bookmark-outline"></use>
+              </svg>
+              <span>Bookmarks</span>
+            </button>
 
-      <header class="header">
-        <div class="logo">Logo</div>
-        <form class="search">
-          <input
-            type="text"
-            class="search__field"
-            placeholder="Search over 1,000,000 recipes..."
-          />
-          <button class="search__btn btn">
-            <svg class="btn--icon">
-              <use xlink:href="src/img/sprite.svg#icon-search"></use>
-            </svg>
-            <span>Search</span>
-          </button>
-        </form>
-        <div class="nav">
-          <button class="btn nav__btn nav--add-recipe">
-            <svg class="btn--icon">
-              <use xlink:href="src/img/sprite.svg#icon-show-sidebar"></use>
-            </svg>
-            <span>Add Recipe</span>
-          </button>
-          <button class="btn nav__btn nav--bookmarks">
-            <svg class="btn--icon">
-              <use xlink:href="src/img/sprite.svg#icon-bookmark-outline"></use>
-            </svg>
-            <span>Bookmarks</span>
-          </button>
+            <!-- -------------------- bookmarks ---------------------- -->
 
-          <!-- -------------------- bookmarks ---------------------- -->
+            <div class="bookmarks">
+              <div class="results results--bookmarks">
+                <div class="preview">
+                  <figure class="preview--image">
+                    <img
+                      src="https://images.unsplash.com/photo-1652288282543-0fc019cfc457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                      alt="pizza"
+                    />
+                  </figure>
+                  <h3 class="preview__data preview__data--title">
+                    Żurek 'nad Żurkami'
+                  </h3>
+                  <p class="preview__data preview__data--publisher">Nusia</p>
+                </div>
 
-          <div class="bookmarks">
-            <div class="results results--bookmarks">
-              <div class="preview">
-                <figure class="preview--image">
-                  <img
-                    src="https://images.unsplash.com/photo-1652288282543-0fc019cfc457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-                    alt="pizza"
-                  />
-                </figure>
-                <h3 class="preview__data preview__data--title">
-                  Żurek 'nad Żurkami'
-                </h3>
-                <p class="preview__data preview__data--publisher">Nusia</p>
-              </div>
-
-              <div class="preview">
-                <figure class="preview--image">
-                  <img
-                    src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                    alt="pizza"
-                  />
-                </figure>
-                <h3 class="preview__data preview__data--title">
-                  Pizza 'Pizzka'
-                </h3>
-                <p class="preview__data preview__data--publisher">Fala</p>
+                <div class="preview">
+                  <figure class="preview--image">
+                    <img
+                      src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+                      alt="pizza"
+                    />
+                  </figure>
+                  <h3 class="preview__data preview__data--title">
+                    Pizza 'Pizzka'
+                  </h3>
+                  <p class="preview__data preview__data--publisher">Fala</p>
+                </div>
               </div>
             </div>
           </div>

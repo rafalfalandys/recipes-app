@@ -1,6 +1,7 @@
 .recipe {
   width: 100%;
   font-size: $font-small;
+  grid-row: 2/3;
 
   &--image {
     height: 25rem;

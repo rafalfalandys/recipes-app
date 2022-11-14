@@ -41,12 +41,13 @@ body {
   box-sizing: border-box;
   border: none;
   background-color: $color-grey-light-very;
-  height: 100vh;
 }
 
 .main-container {
   background-color: $color-base-white;
-  min-height: 50rem;
+  min-height: calc(100vh - 3rem);
+  // min-height: 50rem;
+
   max-width: 90rem;
   margin: 1.5rem auto;
   display: grid;
@@ -54,5 +55,6 @@ body {
   grid-template-rows: auto 1fr;
   justify-items: start;
   border-radius: 4px;
+  overflow: hidden;
   // gap: 2rem;
 }

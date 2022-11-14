@@ -89,3 +89,27 @@ const init = function () {
 };
 
 init();
+
+// sticky nav
+
+const stickyNav = function (entries) {
+  entries.forEach((entry) => {
+    console.log(entry);
+    if (!entry.isIntersecting) {
+      header.classList.add("sticky");
+    }
+    if (entry.isIntersecting) {
+      header.classList.remove("sticky");
+    }
+  });
+};
+
+const header = document.querySelector(".header");
+const headerContainer = document.querySelector(".header__container");
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 1,
+});
+
+headerObserver.observe(headerContainer);
