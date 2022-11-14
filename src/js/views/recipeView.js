@@ -12,10 +12,11 @@ class RecipeView extends View {
 
   addHandlerServingsChange(handler) {
     this._parentEl.addEventListener("click", function (e) {
-      const btn = e.target.closest(".recipe__info-icon");
+      const btn = e.target.closest(".serving-btn");
       if (!btn) return;
       //returns true if plus btn pressed and false if minus
-      return handler(btn.classList.contains("recipe__info-icon--man-plus"));
+      const isPlus = btn.classList.contains("recipe__info-icon--man-plus");
+      return handler(isPlus);
     });
   }
 
@@ -72,12 +73,12 @@ class RecipeView extends View {
             <span class="recipe__info--data">${data.servings}</span>
             <span class="recipe__info--text">&nbsp;servings</span>
             <svg
-              class="recipe__info-icon recipe__info-icon--man-minus icon-hover"
+              class="recipe__info-icon recipe__info-icon--man-minus icon-hover serving-btn"
             >
               <use xlink:href="${icons}#icon-minus-outline"></use>
             </svg>
             <svg
-              class="recipe__info-icon recipe__info-icon--man-plus icon-hover"
+              class="recipe__info-icon recipe__info-icon--man-plus icon-hover  serving-btn"
             >
               <use xlink:href="${icons}#icon-add-outline"></use>
             </svg>

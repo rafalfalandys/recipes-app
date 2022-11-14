@@ -3,6 +3,11 @@ import View from "./view.js";
 class SearchView extends View {
   _parentEl = document.querySelector(".search");
 
+  constructor() {
+    super();
+    this.addHeaderObserver();
+  }
+
   getQuery() {
     const query = this._parentEl.querySelector(".search__field").value;
     this._parentEl.querySelector(".search__field").value = "";
@@ -16,11 +21,11 @@ class SearchView extends View {
     });
   }
 
+  // Sticky Header
   _stickyNav(entries) {
     const header = document.querySelector(".header");
 
     entries.forEach((entry) => {
-      console.log(entry.isIntersecting);
       if (!entry.isIntersecting) header.classList.add("sticky");
       if (entry.isIntersecting) header.classList.remove("sticky");
     });
@@ -37,5 +42,3 @@ class SearchView extends View {
 }
 
 export default new SearchView();
-
-// sticky nav

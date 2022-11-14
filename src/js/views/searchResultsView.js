@@ -3,6 +3,7 @@ import View from "./view.js";
 
 class SearchResultsView extends View {
   _parentEl = document.querySelector(".results--link");
+  _errorMessage = "No recipes found. Search again";
 
   _generateSinglePreview(recipe) {
     return `
@@ -20,8 +21,6 @@ class SearchResultsView extends View {
   }
 
   _generateMarkup(recipesArr) {
-    if (recipesArr.length === 0)
-      return '<div class="message">No recipes found. Search again</div>';
     return `
     ${recipesArr.map((recipe) => this._generateSinglePreview(recipe)).join(" ")}
     `;

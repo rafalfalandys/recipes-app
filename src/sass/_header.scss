@@ -5,7 +5,6 @@
     transition: all 1s;
     height: 7rem;
     border-radius: $border-radius;
-    overflow: hidden;
   }
 
   height: 7rem;
@@ -13,11 +12,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  background-color: $color-base-white;
   z-index: 2;
 }
 
 .sticky {
+  background-color: $color-base-white;
   position: fixed;
   top: 0;
   width: 100%;

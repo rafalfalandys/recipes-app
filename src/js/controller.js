@@ -30,7 +30,7 @@ const controlRecipe = async function () {
 
 const controlServingsChange = function (addOrRemove) {
   model.changeServings(addOrRemove);
-  recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
   // console.log(model.state.recipe.servings);
 };
 
@@ -81,12 +81,12 @@ const controlPagination = function (isNext) {
 ////////////////////////////////////////////////////////////
 
 const init = function () {
-  // controlRecipe();
   searchView.addHandlerSearch(controlSearchResults);
-  searchView.addHeaderObserver();
   recipeView.addHandlerUrlChange(controlRecipe);
   recipeView.addHandlerServingsChange(controlServingsChange);
   paginationView.addHandlerPageChange(controlPagination);
 };
 
 init();
+
+const range = new Range();

@@ -44,7 +44,6 @@
   &:hover {
     transform: translateX(-0.7rem);
     filter: grayscale(0);
-    // box-shadow: -5px 0 2px $color-grey-light;
     &::before {
       opacity: 0;
     }
@@ -61,6 +60,7 @@
     // position: relative;
     // -webkit-filter: grayscale(100%);
     // filter: grayscale(100%);
+    // display: none;
 
     img {
       width: 100%;

@@ -102,7 +102,20 @@
   text-align: center;
   margin: 5rem;
   font-size: $font-medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: $color-grey;
+
+  svg {
+    fill: $color-grey;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  span {
+    color: inherit;
+  }
 }
 
 .test-div {
