@@ -7,7 +7,9 @@ class RecipeView extends View {
   _errorMessage = "We could not find that recipe, please try another one";
 
   addHandlerUrlChange(handler) {
-    window.addEventListener("hashchange", handler);
+    ["hashchange", "load"].forEach((event) =>
+      window.addEventListener(event, handler)
+    );
   }
 
   addHandlerServingsChange(handler) {
@@ -17,6 +19,14 @@ class RecipeView extends View {
       //returns true if plus btn pressed and false if minus
       const isPlus = btn.classList.contains("recipe__info-icon--man-plus");
       return handler(isPlus);
+    });
+  }
+
+  addHandlerAddBookmark(handler) {
+    this._parentEl.addEventListener("click", function (e) {
+      const btn = e.target.closest(".recipe__info-icon--bookmark");
+      if (!btn) return;
+      handler();
     });
   }
 
@@ -89,7 +99,7 @@ class RecipeView extends View {
               <use xlink:href="${icons}#icon-user"></use>
             </svg>
             <svg
-              class="recipe__info-icon recipe__info-icon--bookmarks icon-hover"
+              class="recipe__info-icon recipe__info-icon--bookmark icon-hover"
             >
               <use xlink:href="${icons}#icon-bookmark-outline"></use>
             </svg>

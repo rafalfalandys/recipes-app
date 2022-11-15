@@ -53,7 +53,6 @@ const controlSearchResults = async function () {
     // get number of pages basing on view height
     const resultsPerPage = searchResultsView.getResultsPerPageNo();
     model.loadNumberOfResultsPerPage(resultsPerPage);
-    console.log(model.state.searchResults);
 
     // 4) render page of recipes
     searchResultsView.render(model.getResultsPerPage());
@@ -82,6 +81,16 @@ const controlPagination = function (isNext) {
 };
 
 ////////////////////////////////////////////////////////////
+//////////////////// Control bookmarks /////////////////////
+////////////////////////////////////////////////////////////
+
+const controlBookmarks = function () {
+  console.log("YES!!");
+  const recipe = model.state.recipe;
+  console.log(recipe);
+};
+
+////////////////////////////////////////////////////////////
 /////////////////////////// Init ///////////////////////////
 ////////////////////////////////////////////////////////////
 
@@ -89,6 +98,7 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   recipeView.addHandlerUrlChange(controlRecipe);
   recipeView.addHandlerServingsChange(controlServingsChange);
+  recipeView.addHandlerAddBookmark(controlBookmarks);
   paginationView.addHandlerPageChange(controlPagination);
 };
 
