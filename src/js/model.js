@@ -10,7 +10,7 @@ export const state = {
     query: "",
     results: [],
     page: 2,
-    // resultsPerPage:
+    resultsPerPage: 10,
     pagesQty: 1,
   },
   bookmarks: [],
@@ -58,13 +58,20 @@ export const loadSearchResults = async function (query) {
   }
 };
 
+export const loadResultsPerPage = function (resultsPerPage) {
+  console.log(resultsPerPage);
+  return (state.searchResults.resultsPerPage = +resultsPerPage);
+};
+
 export const getResultsPerPage = function (page = state.searchResults.page) {
   // count pages
   const resultsQty = state.searchResults.results.length;
-  state.searchResults.pagesQty = Math.ceil(resultsQty / RESULTS_PER_PAGE);
+  state.searchResults.pagesQty = Math.ceil(
+    resultsQty / state.searchResults.resultsPerPage
+  );
 
-  const start = (page - 1) * RESULTS_PER_PAGE;
-  const end = page * RESULTS_PER_PAGE;
+  const start = (page - 1) * state.searchResults.resultsPerPage;
+  const end = page * state.searchResults.resultsPerPage;
   return state.searchResults.results.slice(start, end);
 };
 
