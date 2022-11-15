@@ -52,7 +52,7 @@ const controlSearchResults = async function () {
 
     // get number of pages basing on view height
     const resultsPerPage = searchResultsView.getResultsPerPageNo();
-    model.loadResultsPerPage(resultsPerPage);
+    model.loadNumberOfResultsPerPage(resultsPerPage);
     console.log(model.state.searchResults);
 
     // 4) render page of recipes

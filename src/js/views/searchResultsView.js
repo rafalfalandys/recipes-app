@@ -28,14 +28,16 @@ class SearchResultsView extends View {
   }
 
   getResultsPerPageNo = function () {
-    const headerHeight = document.querySelector(".header").clientHeight;
-    const paginationHeight = document.querySelector(".pagination").clientHeight;
-    const copyrightsHeight = document.querySelector(".copyright").clientHeight;
+    const headerHeight = document.querySelector(".header").offsetHeight;
+    console.log(headerHeight);
+    const paginationHeight = document.querySelector(".pagination").offsetHeight;
+    const copyrightsHeight = document.querySelector(".copyright").offsetHeight;
     const mainContainerHeight =
-      document.querySelector(".main-container").clientHeight;
+      document.querySelector(".main-container").offsetHeight;
     const resultsHeight =
       mainContainerHeight - headerHeight - paginationHeight - copyrightsHeight;
 
+    console.log(mainContainerHeight);
     const resultsNo = Math.floor(resultsHeight / PREVIEW_HEIGHT);
 
     return resultsNo;
@@ -43,3 +45,23 @@ class SearchResultsView extends View {
 }
 
 export default new SearchResultsView();
+
+getResultsPerPageNo = function () {
+  const headerHeight = document.querySelector(".header").offsetHeight;
+  console.log("header", headerHeight);
+  const paginationHeight = document.querySelector(".pagination").offsetHeight;
+  console.log("pagination", paginationHeight);
+  const copyrightsHeight = document.querySelector(".copyright").offsetHeight;
+  console.log("copyright", copyrightsHeight);
+  const mainContainerHeight =
+    document.querySelector(".main-container").offsetHeight;
+  console.log("main container", mainContainerHeight);
+  const resultsHeight =
+    mainContainerHeight - headerHeight - paginationHeight - copyrightsHeight;
+  console.log("result", resultsHeight);
+  const resultsNo = Math.floor(resultsHeight / PREVIEW_HEIGHT);
+
+  return resultsNo;
+};
+
+getResultsPerPageNo();

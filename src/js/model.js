@@ -58,9 +58,8 @@ export const loadSearchResults = async function (query) {
   }
 };
 
-export const loadResultsPerPage = function (resultsPerPage) {
-  console.log(resultsPerPage);
-  return (state.searchResults.resultsPerPage = +resultsPerPage);
+export const loadNumberOfResultsPerPage = function (resultsPerPage) {
+  return (state.searchResults.resultsPerPage = resultsPerPage);
 };
 
 export const getResultsPerPage = function (page = state.searchResults.page) {
