@@ -3,6 +3,7 @@ import recipeView from "./views/recipeView.js";
 import searchResultsView from "./views/searchResultsView.js";
 import searchView from "./views/searchView.js";
 import paginationView from "./views/paginationView.js";
+import bookmarksView from "./views/bookmarksView.js";
 
 ////////////////////////////////////////////////////////////
 ////////////////////// Control recipe //////////////////////
@@ -10,11 +11,12 @@ import paginationView from "./views/paginationView.js";
 
 const controlRecipe = async function () {
   try {
-    // 1) render spinner
-    recipeView.renderSpinner();
-
-    // 2) get id from url
+    // 1) get id from url
     const id = window.location.hash.slice(1);
+    if (id === "") return;
+
+    // 2) render spinner
+    recipeView.renderSpinner();
 
     // 3) load recipe
     await model.loadRecipe(id);
@@ -85,9 +87,20 @@ const controlPagination = function (isNext) {
 ////////////////////////////////////////////////////////////
 
 const controlBookmarks = function () {
-  console.log("YES!!");
   const recipe = model.state.recipe;
-  console.log(recipe);
+  const bookmarks = model.state.bookmarks;
+  if (!bookmarks.includes(recipe)) {
+    model.addBookmark();
+    //   model.state.bookmarks.push(recipe);
+    //   model.state.recipe.isBookmarked = true;
+  } else {
+    model.removeBokmark();
+    //   model.state.bookmarks.splice(bookmarks.indexOf(recipe), 1);
+    //   model.state.recipe.isBookmarked = false;
+  }
+  // model.toggleBookmark();
+  bookmarksView.render(model.state.bookmarks);
+  recipeView.update(model.state.recipe);
 };
 
 ////////////////////////////////////////////////////////////
@@ -96,7 +109,8 @@ const controlBookmarks = function () {
 
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
-  recipeView.addHandlerUrlChange(controlRecipe);
+  recipeView.addHandlerUrlChangeOrLoad(controlRecipe);
+  // recipeView.addHandlerUrlChangeOrLoad(controlBookmarks);
   recipeView.addHandlerServingsChange(controlServingsChange);
   recipeView.addHandlerAddBookmark(controlBookmarks);
   paginationView.addHandlerPageChange(controlPagination);
@@ -104,4 +118,4 @@ const init = function () {
 
 init();
 
-const range = new Range();
+console.log(model.state);

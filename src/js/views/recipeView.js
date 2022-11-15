@@ -6,7 +6,7 @@ class RecipeView extends View {
   _parentEl = document.querySelector(".recipe");
   _errorMessage = "We could not find that recipe, please try another one";
 
-  addHandlerUrlChange(handler) {
+  addHandlerUrlChangeOrLoad(handler) {
     ["hashchange", "load"].forEach((event) =>
       window.addEventListener(event, handler)
     );
@@ -101,7 +101,9 @@ class RecipeView extends View {
             <svg
               class="recipe__info-icon recipe__info-icon--bookmark icon-hover"
             >
-              <use xlink:href="${icons}#icon-bookmark-outline"></use>
+              <use xlink:href="${icons}#icon-bookmark${
+      data.isBookmarked ? "" : "-outline"
+    }"></use>
             </svg>
           </div>
         </div>

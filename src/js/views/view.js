@@ -31,9 +31,16 @@ export default class View {
       const curEl = curElements[i];
       if (
         !newEl.isEqualNode(curEl) &&
-        newEl.firstChild.nodeValue.trim() !== "" // here I struggled a lot because I was skipping 'nodeValue' and tried to trim the child itself
+        newEl.firstChild?.nodeValue.trim() !== "" // here I struggled a lot because I was skipping 'nodeValue' and tried to trim the child itself
       ) {
         curEl.textContent = newEl.textContent;
+      }
+
+      // Updates change attributes
+      if (!newEl.isEqualNode(curEl)) {
+        Array.from(newEl.attributes).forEach((attr) =>
+          curEl.setAttribute(attr.name, attr.value)
+        );
       }
     });
   }
