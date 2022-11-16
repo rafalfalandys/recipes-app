@@ -45,6 +45,12 @@ export default class View {
     });
   }
 
+  addHandlerUrlChangeOrLoad(handler) {
+    ["hashchange", "load"].forEach((event) =>
+      window.addEventListener(event, handler)
+    );
+  }
+
   renderSpinner() {
     this._clearView();
     this._parentEl.insertAdjacentHTML(

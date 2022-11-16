@@ -96,16 +96,6 @@ export const changeServings = function (addOrRemove) {
   );
 };
 
-export const addBookmark = function () {
-  state.bookmarks.push(state.recipe);
-  state.recipe.isBookmarked = true;
-};
-
-export const removeBokmark = function () {
-  state.bookmarks.splice(state.bookmarks.indexOf(state.recipe), 1);
-  state.recipe.isBookmarked = false;
-};
-
 export const toggleBookmark = function () {
   if (!state.bookmarks.includes(state.recipe)) {
     state.bookmarks.push(state.recipe);

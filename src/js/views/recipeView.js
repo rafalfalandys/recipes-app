@@ -6,12 +6,6 @@ class RecipeView extends View {
   _parentEl = document.querySelector(".recipe");
   _errorMessage = "We could not find that recipe, please try another one";
 
-  addHandlerUrlChangeOrLoad(handler) {
-    ["hashchange", "load"].forEach((event) =>
-      window.addEventListener(event, handler)
-    );
-  }
-
   addHandlerServingsChange(handler) {
     this._parentEl.addEventListener("click", function (e) {
       const btn = e.target.closest(".serving-btn");

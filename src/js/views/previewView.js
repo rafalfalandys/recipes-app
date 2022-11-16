@@ -1,10 +1,7 @@
 import View from "./view.js";
-// import icons from "../../img/sprite.svg";
+import { PREVIEW_HEIGHT } from "../config.js";
 
-class BookmarksView extends View {
-  _parentEl = document.querySelector(".results--bookmarks");
-  _errorMessage = "No bookmarks yet";
-
+export default class PreviewView extends View {
   _generateSinglePreview(recipe) {
     return `
         <a class="preview" href="#${recipe.id}">
@@ -26,5 +23,3 @@ class BookmarksView extends View {
     `;
   }
 }
-
-export default new BookmarksView();

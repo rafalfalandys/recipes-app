@@ -86,21 +86,14 @@ const controlPagination = function (isNext) {
 //////////////////// Control bookmarks /////////////////////
 ////////////////////////////////////////////////////////////
 
-const controlBookmarks = function () {
-  const recipe = model.state.recipe;
-  const bookmarks = model.state.bookmarks;
-  if (!bookmarks.includes(recipe)) {
-    model.addBookmark();
-    //   model.state.bookmarks.push(recipe);
-    //   model.state.recipe.isBookmarked = true;
-  } else {
-    model.removeBokmark();
-    //   model.state.bookmarks.splice(bookmarks.indexOf(recipe), 1);
-    //   model.state.recipe.isBookmarked = false;
-  }
-  // model.toggleBookmark();
+const controlAddBookmark = function () {
+  model.toggleBookmark();
   bookmarksView.render(model.state.bookmarks);
   recipeView.update(model.state.recipe);
+};
+
+const controlBookmarks = function () {
+  bookmarksView.render(model.state.bookmarks);
 };
 
 ////////////////////////////////////////////////////////////
@@ -110,9 +103,9 @@ const controlBookmarks = function () {
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   recipeView.addHandlerUrlChangeOrLoad(controlRecipe);
-  // recipeView.addHandlerUrlChangeOrLoad(controlBookmarks);
+  bookmarksView.addHandlerUrlChangeOrLoad(controlBookmarks);
   recipeView.addHandlerServingsChange(controlServingsChange);
-  recipeView.addHandlerAddBookmark(controlBookmarks);
+  recipeView.addHandlerAddBookmark(controlAddBookmark);
   paginationView.addHandlerPageChange(controlPagination);
 };
 
