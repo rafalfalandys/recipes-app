@@ -1,4 +1,4 @@
-import PreviewView from "./PreviewView.js";
+import PreviewView from "./previewView.js";
 
 class BookmarksView extends PreviewView {
   _parentEl = document.querySelector(".results--bookmarks");
