@@ -111,4 +111,4 @@ const init = function () {
 
 init();
 
-console.log(model.state);
+console.log(searchResultsView);
