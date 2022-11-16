@@ -1,0 +1,13 @@
+.bookmarks {
+  background-color: $color-base-white;
+  box-shadow: 1px -2px 2px$color-grey-light;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.results {
+  &--bookmarks {
+    // border-top: 1px solid $color-grey-light;
+    padding: 1rem 0.7rem;
+  }
+}

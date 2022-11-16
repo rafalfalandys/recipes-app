@@ -1,8 +1,5 @@
-import { API_URL, RESULTS_PER_PAGE } from "./config";
-
-// https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza //search results
-
-// https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc886 // single recipe
+import { API_URL } from "./config";
+import AJAX from "./helper.js";
 
 export const state = {
   recipe: {},
@@ -31,33 +28,35 @@ export const loadRecipe = async function (id) {
       servings: recipeData.servings,
       url: recipeData.source_url,
       title: recipeData.title,
-      isBookmarked: state.bookmarksIDs.some(
-        (bookmarkID) => bookmarkID === recipeData.id
-      )
+      isBookmarked: state.bookmarksIDs.some((id) => id === recipeData.id)
         ? true
         : false,
     };
   } catch (error) {
-    console.log(error);
     throw new Error();
   }
+};
+
+const buildPreviewRecipeObject = function (recipe) {
+  return {
+    id: recipe.id,
+    image: recipe.image_url,
+    publisher: recipe.publisher,
+    title: recipe.title,
+  };
 };
 
 // Search Results
 export const loadSearchResults = async function (query) {
   try {
-    const res = await fetch(`${API_URL}?search=${query}`);
-    if (!res) throw new Error();
-    const json = await res.json();
+    // const res = await fetch(`${API_URL}?search=${query}`);
+    // if (!res) throw new Error();
+    // const json = await res.json();
+    const json = await AJAX(`${API_URL}?search=${query}`);
     const searchResults = json.data.recipes;
     state.searchResults.page = 1;
     state.searchResults.results = searchResults.map((recipe) => {
-      return {
-        id: recipe.id,
-        image: recipe.image_url,
-        publisher: recipe.publisher,
-        title: recipe.title,
-      };
+      return buildPreviewRecipeObject(recipe);
     });
   } catch (err) {
     throw new Error();
@@ -99,7 +98,6 @@ export const changeServings = function (addOrRemove) {
 };
 
 export const toggleBookmark = function () {
-  // if (!state.bookmarks.includes(state.recipe)) {
   if (
     !state.bookmarksIDs.some((bookmarkID) => bookmarkID === state.recipe.id)
   ) {
@@ -113,15 +111,17 @@ export const toggleBookmark = function () {
 
 const loadBookmarksSingleObject = async function (id) {
   try {
-    const res = await fetch(`${API_URL}${id}`);
-    const json = await res.json();
+    // const res = await fetch(`${API_URL}${id}`);
+    // const json = await res.json();
+    const json = await AJAX(`${API_URL}${id}`);
     const recipeData = json.data.recipe;
-    const recipe = {
-      id: recipeData.id,
-      image: recipeData.image_url,
-      publisher: recipeData.publisher,
-      title: recipeData.title,
-    };
+    const recipe = buildPreviewRecipeObject(recipeData);
+    // {
+    //   id: recipeData.id,
+    //   image: recipeData.image_url,
+    //   publisher: recipeData.publisher,
+    //   title: recipeData.title,
+    // };
     return recipe;
   } catch (error) {
     throw new Error();
@@ -147,39 +147,3 @@ export const loadLocalStorage = function () {
   const bookmarksIDs = JSON.parse(localStorage.bookmarksIDs);
   state.bookmarksIDs = bookmarksIDs;
 };
-////////////////////////////////////////////////////
-
-// const arrr = [
-//   {
-//     one: 1,
-//     two: 2,
-//   },
-//   {
-//     one: 3,
-//     two: 4,
-//   },
-//   {
-//     one: 1,
-//     two: 2,
-//   },
-// ];
-
-// const med = [
-//   { name: "name1", position: "left" },
-//   { name: "name2", position: "right" },
-//   { name: "name3", position: "left" },
-//   { name: "name4", position: "right" },
-//   { name: "name5", position: "left" },
-//   { name: "name6", position: "left1" },
-// ];
-
-// const arr = [];
-// arrr.reduce((acc, curr) => {
-//   if (acc.indexOf(curr.two) === -1) {
-//     acc.push(curr.two);
-//     arr.push(curr);
-//   }
-//   return acc;
-// }, []);
-
-// const bbb
