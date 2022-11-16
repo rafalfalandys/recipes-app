@@ -13,7 +13,8 @@ export const state = {
     resultsPerPage: 10,
     pagesQty: 1,
   },
-  bookmarks: [],
+  bookmarksIDs: [],
+  bookmarksObjects: [],
 };
 
 export const loadRecipe = async function (id) {
@@ -30,19 +31,14 @@ export const loadRecipe = async function (id) {
       servings: recipeData.servings,
       url: recipeData.source_url,
       title: recipeData.title,
-      isBookmarked: state.bookmarks.some(
-        (recipe) => recipe.id === recipeData.id
+      isBookmarked: state.bookmarksIDs.some(
+        (bookmarkID) => bookmarkID === recipeData.id
       )
         ? true
         : false,
     };
-
-    // const cullDuplicates = state.recipe.reduce((acc, i) => {
-    //   if (acc.indexOf(i) === -1) acc.push(i);
-    // });
-
-    // console.log(cullDuplicates);
   } catch (error) {
+    console.log(error);
     throw new Error();
   }
 };
@@ -103,15 +99,54 @@ export const changeServings = function (addOrRemove) {
 };
 
 export const toggleBookmark = function () {
-  if (!state.bookmarks.includes(state.recipe)) {
-    state.bookmarks.push(state.recipe);
+  // if (!state.bookmarks.includes(state.recipe)) {
+  if (
+    !state.bookmarksIDs.some((bookmarkID) => bookmarkID === state.recipe.id)
+  ) {
+    state.bookmarksIDs.push(state.recipe.id);
     state.recipe.isBookmarked = true;
   } else {
-    state.bookmarks.splice(state.bookmarks.indexOf(state.recipe), 1);
+    state.bookmarksIDs.splice(state.bookmarksIDs.indexOf(state.recipe.id), 1);
     state.recipe.isBookmarked = false;
   }
 };
 
+const loadBookmarksSingleObject = async function (id) {
+  try {
+    const res = await fetch(`${API_URL}${id}`);
+    const json = await res.json();
+    const recipeData = json.data.recipe;
+    const recipe = {
+      id: recipeData.id,
+      image: recipeData.image_url,
+      publisher: recipeData.publisher,
+      title: recipeData.title,
+    };
+    return recipe;
+  } catch (error) {
+    throw new Error();
+  }
+};
+
+export const loadBookmarksObjects = async function () {
+  try {
+    state.bookmarksObjects = await Promise.all(
+      state.bookmarksIDs.map((id) => loadBookmarksSingleObject(id))
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const setLocalStorage = function () {
+  localStorage.setItem("bookmarksIDs", JSON.stringify(state.bookmarksIDs));
+};
+
+export const loadLocalStorage = function () {
+  if (!localStorage.bookmarksIDs) return;
+  const bookmarksIDs = JSON.parse(localStorage.bookmarksIDs);
+  state.bookmarksIDs = bookmarksIDs;
+};
 ////////////////////////////////////////////////////
 
 // const arrr = [

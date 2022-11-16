@@ -1,5 +1,4 @@
 import View from "./view.js";
-import { PREVIEW_HEIGHT } from "../config.js";
 
 export default class PreviewView extends View {
   _generateSinglePreview(recipe) {

@@ -20,6 +20,7 @@ const controlRecipe = async function () {
 
     // 3) load recipe
     await model.loadRecipe(id);
+
     // 4) render
     recipeView.render(model.state.recipe);
   } catch (error) {
@@ -86,14 +87,26 @@ const controlPagination = function (isNext) {
 //////////////////// Control bookmarks /////////////////////
 ////////////////////////////////////////////////////////////
 
-const controlAddBookmark = function () {
-  model.toggleBookmark();
-  bookmarksView.render(model.state.bookmarks);
-  recipeView.update(model.state.recipe);
+const controlAddBookmark = async function () {
+  try {
+    model.toggleBookmark();
+    await model.loadBookmarksObjects();
+    bookmarksView.render(model.state.bookmarksObjects);
+    recipeView.update(model.state.recipe);
+    model.setLocalStorage();
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-const controlBookmarks = function () {
-  bookmarksView.render(model.state.bookmarks);
+const controlBookmarks = async function () {
+  try {
+    model.loadLocalStorage();
+    await model.loadBookmarksObjects();
+    bookmarksView.render(model.state.bookmarksObjects);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 ////////////////////////////////////////////////////////////
@@ -101,12 +114,12 @@ const controlBookmarks = function () {
 ////////////////////////////////////////////////////////////
 
 const init = function () {
-  searchView.addHandlerSearch(controlSearchResults);
-  recipeView.addHandlerUrlChangeOrLoad(controlRecipe);
   bookmarksView.addHandlerUrlChangeOrLoad(controlBookmarks);
+  searchView.addHandlerSearch(controlSearchResults);
+  paginationView.addHandlerPageChange(controlPagination);
+  recipeView.addHandlerUrlChangeOrLoad(controlRecipe);
   recipeView.addHandlerServingsChange(controlServingsChange);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
-  paginationView.addHandlerPageChange(controlPagination);
 };
 
 init();
