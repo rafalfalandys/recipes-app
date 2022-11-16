@@ -110,5 +110,3 @@ const init = function () {
 };
 
 init();
-
-console.log(searchResultsView);

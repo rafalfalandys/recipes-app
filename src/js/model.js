@@ -36,6 +36,12 @@ export const loadRecipe = async function (id) {
         ? true
         : false,
     };
+
+    // const cullDuplicates = state.recipe.reduce((acc, i) => {
+    //   if (acc.indexOf(i) === -1) acc.push(i);
+    // });
+
+    // console.log(cullDuplicates);
   } catch (error) {
     throw new Error();
   }
@@ -105,3 +111,40 @@ export const toggleBookmark = function () {
     state.recipe.isBookmarked = false;
   }
 };
+
+////////////////////////////////////////////////////
+
+// const arrr = [
+//   {
+//     one: 1,
+//     two: 2,
+//   },
+//   {
+//     one: 3,
+//     two: 4,
+//   },
+//   {
+//     one: 1,
+//     two: 2,
+//   },
+// ];
+
+// const med = [
+//   { name: "name1", position: "left" },
+//   { name: "name2", position: "right" },
+//   { name: "name3", position: "left" },
+//   { name: "name4", position: "right" },
+//   { name: "name5", position: "left" },
+//   { name: "name6", position: "left1" },
+// ];
+
+// const arr = [];
+// arrr.reduce((acc, curr) => {
+//   if (acc.indexOf(curr.two) === -1) {
+//     acc.push(curr.two);
+//     arr.push(curr);
+//   }
+//   return acc;
+// }, []);
+
+// const bbb
