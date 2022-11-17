@@ -4,6 +4,8 @@ import searchResultsView from "./views/searchResultsView.js";
 import searchView from "./views/searchView.js";
 import paginationView from "./views/paginationView.js";
 import bookmarksView from "./views/bookmarksView.js";
+import uploadRecipeView from "./views/uploadRecipeView.js";
+import { async } from "regenerator-runtime";
 
 ////////////////////////////////////////////////////////////
 ////////////////////// Control recipe //////////////////////
@@ -110,6 +112,18 @@ const controlBookmarks = async function () {
 };
 
 ////////////////////////////////////////////////////////////
+//////////////////// Control bookmarks /////////////////////
+////////////////////////////////////////////////////////////
+
+const controlUploadRecipe = async function () {
+  try {
+    console.log("tu ja - kontroler");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+////////////////////////////////////////////////////////////
 /////////////////////////// Init ///////////////////////////
 ////////////////////////////////////////////////////////////
 
@@ -120,6 +134,7 @@ const init = function () {
   recipeView.addHandlerUrlChangeOrLoad(controlRecipe);
   recipeView.addHandlerServingsChange(controlServingsChange);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
+  // uploadRecipeView.addHandlerToggleUploadWindow();
 };
 
 init();

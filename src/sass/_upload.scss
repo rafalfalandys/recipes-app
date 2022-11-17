@@ -8,9 +8,11 @@
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 10;
+  transition: all 0.4s;
 }
 
 .upload {
+  transition: all 0.4s;
   z-index: 11;
   width: 70vw;
   max-width: $max-width;

@@ -15,7 +15,7 @@
   transition: all 0.4s;
 
   &:hover,
-  .nav--bookmarks:hover + & {
+  .btn--bookmarks:hover + & {
     visibility: visible;
     opacity: 1;
   }
