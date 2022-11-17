@@ -171,10 +171,10 @@
             </svg>
             <span class="recipe__info--data">4</span>
             <span class="recipe__info--text">&nbsp;servings</span>
-            <svg class="icon--tiny icon--minus icon--hover">
+            <svg class="icon--tiny icon--minus hover">
               <use xlink:href="src/img/sprite.svg#icon-minus-outline"></use>
             </svg>
-            <svg class="icon--tiny icon--plus icon--hover">
+            <svg class="icon--tiny icon--plus hover">
               <use xlink:href="src/img/sprite.svg#icon-add-outline"></use>
             </svg>
           </div>
@@ -183,7 +183,7 @@
             <svg class="icon--tiny icon--man">
               <use xlink:href="src/img/sprite.svg#icon-user"></use>
             </svg>
-            <svg class="icon--tiny icon--bookmarks icon--hover">
+            <svg class="icon--tiny icon--bookmarks hover">
               <use xlink:href="src/img/sprite.svg#icon-bookmark-outline"></use>
             </svg>
           </div>
@@ -239,85 +239,117 @@
     <!-- -------------------------------------------------- -->
     <!-- -------------------- Upload ---------------------- -->
 
-    <div class="overlay hidden"></div>
-
-    <form class="upload hidden">
-      <!-- ------------------ Column 1 -------------------- -->
-
-      <div class="column column__1">
-        <h1 class="heading">Recipe Data</h1>
-
-        <label>Title</label>
-        <input type="text" name="title" value="Żurek" required />
-
-        <label>Recipe URL</label>
-        <input
-          type="text"
-          name="sourceUrl"
-          value="https://www.jadlonomia.com/przepisy/weganski-zurek-z-pieczonymi-ziemniakami/"
-          required
-        />
-
-        <label>Image URL</label>
-        <input
-          type="text"
-          name="image"
-          value="https://images.unsplash.com/photo-1652288282543-0fc019cfc457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-          required
-        />
-
-        <label>Publisher</label>
-        <input type="text" name="publisher" value="Jadłonomia" required />
-
-        <label>Prep. time (min)</label>
-        <input type="text" value="30" name="cookingTime" required />
-
-        <label>Servings</label>
-        <input type="text" name="title" value="4" required />
-      </div>
-
-      <!-- ------------------ Column 2 -------------------- -->
-
-      <div class="column column__2">
-        <h1 class="heading">Ingredients</h1>
-        <h2 class="column__2--heading-2">Ingredient</h2>
-        <h2 class="column__2--heading-2">Qty</h2>
-        <h2 class="column__2--heading-2">Unit</h2>
-
-        <div class="ingredient">
-          <input type="text" name="ingredient" value="Żur" required />
-          <input type="text" name="quantity" value="1" />
-          <input type="text" name="unit" value="bottle" />
-          <div class="ingredient__btns">
-            <svg class="icon--tiny icon--plus icon--hover">
-              <use xlink:href="src/img/sprite.svg#icon-add-outline" />
-            </svg>
-          </div>
-        </div>
-
-        <div class="ingredient">
-          <input type="text" name="ingredient" value="Kiełby" required />
-          <input type="text" name="quantity" value="6" />
-          <input type="text" name="unit" value="" />
-          <div class="ingredient__btns">
-            <svg class="icon--tiny icon--minus icon--hover">
-              <use xlink:href="src/img/sprite.svg#icon-minus-outline" />
-            </svg>
-            <svg class="icon--tiny icon--plus icon--hover">
-              <use xlink:href="src/img/sprite.svg#icon-add-outline" />
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <button class="btn btn--large">
-          <span>Upload Recipe</span>
-          <svg class="btn--icon">
-            <use xlink:href="src/img/sprite.svg#icon-arrow-thin-right" />
+    <div class="overlay"></div>
+    <div class="upload__container">
+      <form class="upload">
+        <div class="btn btn--close hover">
+          <svg class="">
+            <use xlink:href="src/img/sprite.svg#icon-close" />
           </svg>
-        </button>
-      </div>
-    </form>
+        </div>
+        <!-- ------------------ Column 1 -------------------- -->
+
+        <div class="column column__1">
+          <h1 class="heading">Recipe Data</h1>
+
+          <div class="data-row">
+            <label>Title</label>
+            <input type="text" name="title" value="Żurek" required />
+          </div>
+
+          <div class="data-row">
+            <label>Recipe URL</label>
+            <input
+              type="text"
+              name="sourceUrl"
+              value="https://www.jadlonomia.com/przepisy/weganski-zurek-z-pieczonymi-ziemniakami/"
+              required
+            />
+          </div>
+
+          <div class="data-row">
+            <label>Image URL</label>
+            <input
+              type="text"
+              name="image"
+              value="https://images.unsplash.com/photo-1652288282543-0fc019cfc457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+              required
+            />
+          </div>
+
+          <div class="data-row">
+            <label>Publisher</label>
+            <input type="text" name="publisher" value="Jadłonomia" required />
+          </div>
+
+          <div class="data-row">
+            <label>Prep. time (min)</label>
+            <input type="text" value="30" name="cookingTime" required />
+          </div>
+
+          <div class="data-row">
+            <label>Servings</label>
+            <input type="text" name="servings" value="4" required />
+          </div>
+        </div>
+
+        <!-- ------------------ Column 2 -------------------- -->
+
+        <div class="column column__2">
+          <h1 class="heading">Ingredients</h1>
+          <h2 class="column__2--heading-2">Ingredient</h2>
+          <h2 class="column__2--heading-2">Qty</h2>
+          <h2 class="column__2--heading-2">Unit</h2>
+
+          <div class="ingredient">
+            <input type="text" name="ingredient" value="Żur" required />
+            <input type="text" name="quantity" value="1" />
+            <input type="text" name="unit" value="bottle" />
+            <div class="ingredient__btns">
+              <svg class="icon--tiny icon--plus hover">
+                <use xlink:href="src/img/sprite.svg#icon-add-outline" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="ingredient">
+            <input type="text" name="ingredient" value="Kiełby" required />
+            <input type="text" name="quantity" value="6" />
+            <input type="text" name="unit" value="" />
+            <div class="ingredient__btns">
+              <svg class="icon--tiny icon--minus hover">
+                <use xlink:href="src/img/sprite.svg#icon-minus-outline" />
+              </svg>
+              <svg class="icon--tiny icon--plus hover">
+                <use xlink:href="src/img/sprite.svg#icon-add-outline" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="ingredient">
+            <input type="text" name="ingredient" value="Jajka" required />
+            <input type="text" name="quantity" value="4" />
+            <input type="text" name="unit" value="" />
+            <div class="ingredient__btns">
+              <svg class="icon--tiny icon--minus hover">
+                <use xlink:href="src/img/sprite.svg#icon-minus-outline" />
+              </svg>
+              <svg class="icon--tiny icon--plus hover">
+                <use xlink:href="src/img/sprite.svg#icon-add-outline" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button class="btn btn--large">
+            <span>Upload Recipe</span>
+            <svg class="btn--icon">
+              <use xlink:href="src/img/sprite.svg#icon-arrow-thin-right" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

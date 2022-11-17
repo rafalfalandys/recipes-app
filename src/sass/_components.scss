@@ -9,6 +9,13 @@
   gap: 1rem;
   padding: 1.5rem 2rem;
   text-decoration: none;
+  cursor: pointer;
+
+  &:focus {
+    // outline: $color-grey-light-very solid 1px;
+    outline: none;
+    transform: scale(1.1);
+  }
 
   &--large {
     width: auto;
@@ -32,7 +39,7 @@
   }
 
   &:active {
-    transform: scale(1);
+    transform: scale(1.05);
   }
 }
 
@@ -49,16 +56,6 @@
     width: $icon-small;
     fill: $color-grey-dark;
     margin-right: 1rem;
-  }
-
-  &--hover {
-    transition: all 0.4s;
-    &:hover {
-      transform: scale(1.2);
-    }
-    &:active {
-      transform: scale(1);
-    }
   }
 }
 
@@ -140,4 +137,14 @@
   height: 2rem;
   background-color: red;
   font-size: $font-large;
+}
+
+.hover {
+  transition: all 0.4s;
+  &:hover {
+    transform: scale(1.2);
+  }
+  &:active {
+    transform: scale(1.1);
+  }
 }

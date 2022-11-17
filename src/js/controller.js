@@ -112,15 +112,15 @@ const controlBookmarks = async function () {
 };
 
 ////////////////////////////////////////////////////////////
-//////////////////// Control bookmarks /////////////////////
+///////////////////// Control upload ///////////////////////
 ////////////////////////////////////////////////////////////
 
-const controlUploadRecipe = async function () {
-  try {
-    console.log("tu ja - kontroler");
-  } catch (error) {
-    console.log(error);
-  }
+const controlUploadRecipe = function (dataArr) {
+  console.log(dataArr);
+  const recipeData = dataArr.slice(0, 6);
+  const ingredientsData = dataArr.slice(6);
+  console.log(recipeData);
+  console.log(ingredientsData);
 };
 
 ////////////////////////////////////////////////////////////
@@ -134,7 +134,7 @@ const init = function () {
   recipeView.addHandlerUrlChangeOrLoad(controlRecipe);
   recipeView.addHandlerServingsChange(controlServingsChange);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
-  // uploadRecipeView.addHandlerToggleUploadWindow();
+  uploadRecipeView.addHandlerCollectData(controlUploadRecipe);
 };
 
 init();
