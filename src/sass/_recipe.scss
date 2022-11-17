@@ -43,14 +43,6 @@
 
   &__info {
     display: flex;
-    // font-size: $font-small;
-
-    &-icon {
-      height: $icon-medium;
-      width: $icon-medium;
-      fill: $color-grey-dark;
-      margin-right: 1rem;
-    }
 
     &--text {
       margin-right: 1.5rem;
@@ -71,25 +63,8 @@
   }
 
   &__directions {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem;
-
-    &--text {
-      line-height: 200%;
-    }
-
-    &__btn {
-      margin: 4rem auto 3rem auto;
-      width: auto;
-      background-color: rgba($color-grey-light-very, 1);
-      border-radius: 10rem;
-
-      span {
-        text-transform: uppercase;
-        font-weight: 800;
-      }
+    .btn {
+      margin: 5rem auto;
     }
   }
 
@@ -98,7 +73,6 @@
     color: $color-grey-dark;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
-    //   border-radius: $border-radius-small;
     padding: 0 0.5rem;
     background-color: rgba($color-grey-light, 0.7);
     transform: skewY(-5deg);

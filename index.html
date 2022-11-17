@@ -10,11 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Playfair+Display:ital,wght@1,700&display=swap"
       rel="stylesheet"
     />
-    <!-- <script type="module" src="src/js/controller.js"></script> -->
+    <script type="module" src="src/js/controller.js"></script>
   </head>
   <body>
     <div class="main-container">
-
       <!-- -------------------------------------------------- -->
       <!-- -------------------- header ---------------------- -->
 
@@ -43,7 +42,9 @@
             </button>
             <button class="btn nav__btn nav--bookmarks">
               <svg class="btn--icon">
-                <use xlink:href="src/img/sprite.svg#icon-bookmark-outline"></use>
+                <use
+                  xlink:href="src/img/sprite.svg#icon-bookmark-outline"
+                ></use>
               </svg>
               <span>Bookmarks</span>
             </button>
@@ -88,14 +89,13 @@
 
       <div class="search-results">
         <ul class="results results--link">
-
-          <!-- <div class="message">No recipes found. Search again</div> -->
-
+          <div class="message">No recipes found. Search again</div>
+          <!-- 
           <div class="preview">
             <figure class="preview--image">
               <img
                 src="https://images.unsplash.com/photo-1652288282543-0fc019cfc457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-                alt="pizza"
+                alt="zurek"
               />
             </figure>
             <h3 class="preview__data preview__data--title">
@@ -113,30 +113,7 @@
             </figure>
             <h3 class="preview__data preview__data--title">Pizza 'Pizzka'</h3>
             <p class="preview__data preview__data--publisher">Fala</p>
-          </div>
-
-          <div class="preview">
-            <figure class="preview--image">
-              <img
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                alt="pizza"
-              />
-            </figure>
-            <h3 class="preview__data preview__data--title">Pizza 'Pizzka'</h3>
-            <p class="preview__data preview__data--publisher">Fala</p>
-          </div>
-
-          <div class="preview">
-            <figure class="preview--image">
-              <img
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                alt="pizza"
-              />
-            </figure>
-            <h3 class="preview__data preview__data--title">Pizza 'Pizzka'</h3>
-            <p class="preview__data preview__data--publisher">Fala</p>
-          </div>
-
+          </div> -->
         </ul>
 
         <!-- <div class="spinner">
@@ -144,18 +121,16 @@
             <use xlink:href="src/img/sprite.svg#icon-loader"></use>
           </svg>
         </div> -->
-        
+
         <!-- ------------------ pagination -------------------- -->
 
         <div class="pagination">
-
           <!-- <button class="btn--prev btn">
             &larr; Page&nbsp;<span class="page-btn-no">1</span>
           </button>
           <button class="btn--next btn">
             Page &nbsp;<span class="page-btn-no">3 </span>&nbsp;&rarr;
           </button> -->
-
         </div>
         <p class="copyright">
           App is a rebuilt version of 'Forkify' from Jonas Schmedtmann course.
@@ -167,8 +142,8 @@
 
       <!-- -------------------- header ---------------------- -->
       <div class="recipe">
-        <div class="message">Search for the recipes</div>
-        <!-- <header class="recipe__header">
+        <!-- <div class="message">Search for the recipes</div> -->
+        <header class="recipe__header">
           <figure class="recipe--image">
             <img
               src="https://images.unsplash.com/photo-1652288282543-0fc019cfc457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
@@ -178,12 +153,12 @@
               <span>Żurek 'nad Żurkami'</span>
             </h1>
           </figure>
-        </header> -->
+        </header>
 
         <!-- ---------------- recipe details ------------------ -->
-        <!-- <div class="recipe__details">
+        <div class="recipe__details">
           <div class="recipe__info">
-            <svg class="recipe__info-icon recipe__info-icon--time">
+            <svg class="icon--tiny">
               <use xlink:href="src/img/sprite.svg#icon-time"></use>
             </svg>
             <span class="recipe-info-time">60</span>
@@ -191,39 +166,31 @@
           </div>
 
           <div class="recipe__info recipe--servings">
-            <svg
-              class="recipe__info-icon recipe__info-icon--man-plus icon-hover"
-            >
+            <svg class="icon--tiny">
               <use xlink:href="src/img/sprite.svg#icon-user-add"></use>
             </svg>
             <span class="recipe__info--data">4</span>
             <span class="recipe__info--text">&nbsp;servings</span>
-            <svg
-              class="recipe__info-icon recipe__info-icon--man-minus icon-hover"
-            >
+            <svg class="icon--tiny icon--minus icon--hover">
               <use xlink:href="src/img/sprite.svg#icon-minus-outline"></use>
             </svg>
-            <svg
-              class="recipe__info-icon recipe__info-icon--man-plus icon-hover"
-            >
+            <svg class="icon--tiny icon--plus icon--hover">
               <use xlink:href="src/img/sprite.svg#icon-add-outline"></use>
             </svg>
           </div>
 
           <div class="recipe--buttons">
-            <svg class="recipe__info-icon recipe__info-icon--man">
+            <svg class="icon--tiny icon--man">
               <use xlink:href="src/img/sprite.svg#icon-user"></use>
             </svg>
-            <svg
-              class="recipe__info-icon recipe__info-icon--bookmarks icon-hover"
-            >
+            <svg class="icon--tiny icon--bookmarks icon--hover">
               <use xlink:href="src/img/sprite.svg#icon-bookmark-outline"></use>
             </svg>
-          </div> -->
+          </div>
         </div>
 
         <!-- ------------------- ingredients ------------------ -->
-        <!-- <div class="recipe__ingredients">
+        <div class="recipe__ingredients">
           <header class="recipe__ingredients--header heading-2">
             Recipe Ingredients
           </header>
@@ -247,10 +214,10 @@
               <span class="recipe__ingredient--unit">spoons</span>
             </li>
           </ul>
-        </div> -->
+        </div>
 
         <!-- ------------------- directions ------------------ -->
-        <!-- <div class="recipe__directions">
+        <div class="recipe__directions">
           <header class="recipe__directions--header heading-2">
             How to cook it
           </header>
@@ -259,21 +226,98 @@
             <span class="recipe--publisher">Closet Cooking.</span>
             Please check out directions at their website:
           </p>
-          <a class="recipe__directions__btn btn">
+          <button class="btn btn--large">
             <span>Directions</span>
             <svg class="recipe__directions__btn--icon btn--icon">
               <use xlink:href="src/img/sprite.svg#icon-arrow-thin-right" />
             </svg>
-          </a>
-        </div> -->
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="overlay"></div>
-    <div class="upload">
-      <div class="column"></div>
-      <div class="column"></div>
-      <div class="column"></div>
-    </div>
+    <!-- -------------------------------------------------- -->
+    <!-- -------------------- Upload ---------------------- -->
+
+    <div class="overlay hidden"></div>
+
+    <form class="upload hidden">
+      <!-- ------------------ Column 1 -------------------- -->
+
+      <div class="column column__1">
+        <h1 class="heading">Recipe Data</h1>
+
+        <label>Title</label>
+        <input type="text" name="title" value="Żurek" required />
+
+        <label>Recipe URL</label>
+        <input
+          type="text"
+          name="sourceUrl"
+          value="https://www.jadlonomia.com/przepisy/weganski-zurek-z-pieczonymi-ziemniakami/"
+          required
+        />
+
+        <label>Image URL</label>
+        <input
+          type="text"
+          name="image"
+          value="https://images.unsplash.com/photo-1652288282543-0fc019cfc457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+          required
+        />
+
+        <label>Publisher</label>
+        <input type="text" name="publisher" value="Jadłonomia" required />
+
+        <label>Prep. time (min)</label>
+        <input type="text" value="30" name="cookingTime" required />
+
+        <label>Servings</label>
+        <input type="text" name="title" value="4" required />
+      </div>
+
+      <!-- ------------------ Column 2 -------------------- -->
+
+      <div class="column column__2">
+        <h1 class="heading">Ingredients</h1>
+        <h2 class="column__2--heading-2">Ingredient</h2>
+        <h2 class="column__2--heading-2">Qty</h2>
+        <h2 class="column__2--heading-2">Unit</h2>
+
+        <div class="ingredient">
+          <input type="text" name="ingredient" value="Żur" required />
+          <input type="text" name="quantity" value="1" />
+          <input type="text" name="unit" value="bottle" />
+          <div class="ingredient__btns">
+            <svg class="icon--tiny icon--plus icon--hover">
+              <use xlink:href="src/img/sprite.svg#icon-add-outline" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="ingredient">
+          <input type="text" name="ingredient" value="Kiełby" required />
+          <input type="text" name="quantity" value="6" />
+          <input type="text" name="unit" value="" />
+          <div class="ingredient__btns">
+            <svg class="icon--tiny icon--minus icon--hover">
+              <use xlink:href="src/img/sprite.svg#icon-minus-outline" />
+            </svg>
+            <svg class="icon--tiny icon--plus icon--hover">
+              <use xlink:href="src/img/sprite.svg#icon-add-outline" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn btn--large">
+          <span>Upload Recipe</span>
+          <svg class="btn--icon">
+            <use xlink:href="src/img/sprite.svg#icon-arrow-thin-right" />
+          </svg>
+        </button>
+      </div>
+    </form>
   </body>
 </html>

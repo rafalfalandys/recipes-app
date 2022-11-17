@@ -1,16 +1,25 @@
 // button - general
 .btn {
   transition: all 0.4s;
-  // background-color: $color-base-white;
   background-color: rgba(0, 0, 0, 0);
   border: none;
-  // border-radius: $border-radius-small;
   font-size: $font-medium;
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1.5rem 2rem;
   text-decoration: none;
+
+  &--large {
+    width: auto;
+    background-color: $color-grey-light-very;
+    border-radius: 10rem;
+
+    span {
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+  }
 
   &--icon {
     height: $icon-medium;
@@ -34,16 +43,22 @@
   text-transform: uppercase;
 }
 
-// spinner
-// error msg and msg
-
-.icon-hover {
-  transition: all 0.4s;
-  &:hover {
-    transform: scale(1.2);
+.icon {
+  &--tiny {
+    height: $icon-small;
+    width: $icon-small;
+    fill: $color-grey-dark;
+    margin-right: 1rem;
   }
-  &:active {
-    transform: scale(1);
+
+  &--hover {
+    transition: all 0.4s;
+    &:hover {
+      transform: scale(1.2);
+    }
+    &:active {
+      transform: scale(1);
+    }
   }
 }
 
@@ -76,6 +91,7 @@
   }
 }
 
+// Spinner
 .spinner {
   margin: 8rem auto;
   text-align: center;
@@ -98,6 +114,7 @@
   }
 }
 
+// message (for example error)
 .message {
   text-align: center;
   margin: 5rem;

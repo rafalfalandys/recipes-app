@@ -11,14 +11,14 @@ class RecipeView extends View {
       const btn = e.target.closest(".serving-btn");
       if (!btn) return;
       //returns true if plus btn pressed and false if minus
-      const isPlus = btn.classList.contains("recipe__info-icon--man-plus");
+      const isPlus = btn.classList.contains("icon--plus");
       return handler(isPlus);
     });
   }
 
   addHandlerAddBookmark(handler) {
     this._parentEl.addEventListener("click", function (e) {
-      const btn = e.target.closest(".recipe__info-icon--bookmark");
+      const btn = e.target.closest(".icon--bookmark");
       if (!btn) return;
       handler();
     });
@@ -61,7 +61,7 @@ class RecipeView extends View {
         <!-- ---------------- recipe details ------------------ -->
         <div class="recipe__details">
           <div class="recipe__info">
-            <svg class="recipe__info-icon recipe__info-icon--time">
+            <svg class="icon--tiny">
               <use xlink:href="${icons}#icon-time"></use>
             </svg>
             <span class="recipe-info-time">${data.cookingTime}</span>
@@ -69,32 +69,24 @@ class RecipeView extends View {
           </div>
 
           <div class="recipe__info recipe--servings">
-            <svg
-              class="recipe__info-icon recipe__info-icon--man-plus"
-            >
+            <svg class="icon--tiny">
               <use xlink:href="${icons}#icon-user-add"></use>
             </svg>
             <span class="recipe__info--data">${data.servings}</span>
             <span class="recipe__info--text">&nbsp;servings</span>
-            <svg
-              class="recipe__info-icon recipe__info-icon--man-minus icon-hover serving-btn"
-            >
+            <svg class="icon--tiny icon--minus icon--hover icon--hover serving-btn">
               <use xlink:href="${icons}#icon-minus-outline"></use>
             </svg>
-            <svg
-              class="recipe__info-icon recipe__info-icon--man-plus icon-hover  serving-btn"
-            >
+            <svg class="icon--tiny icon--plus icon--hover serving-btn">
               <use xlink:href="${icons}#icon-add-outline"></use>
             </svg>
           </div>
 
           <div class="recipe--buttons">
-            <svg class="recipe__info-icon recipe__info-icon--man">
+            <svg class="icon--tiny">
               <use xlink:href="${icons}#icon-user"></use>
             </svg>
-            <svg
-              class="recipe__info-icon recipe__info-icon--bookmark icon-hover"
-            >
+            <svg class="icon--tiny icon--bookmark icon--hover">
               <use xlink:href="${icons}#icon-bookmark${
       data.isBookmarked ? "" : "-outline"
     }"></use>
@@ -124,14 +116,12 @@ class RecipeView extends View {
                 <span class="recipe--publisher">${data.publisher}</span>
                 . Please check out directions at their website:
             </p>
-            <a class="recipe__directions__btn btn" href="${
-              data.url
-            }" target='_blank'>
+            <button class="btn btn--large" href="${data.url}" target='_blank'>
                 <span>Directions</span>
                 <svg class="recipe__directions__btn--icon btn--icon">
                     <use xlink:href="${icons}#icon-arrow-thin-right" />
                 </svg>
-            </a>
+            </button>
         </div>
         `;
   }
