@@ -226,12 +226,12 @@
             <span class="recipe--publisher">Closet Cooking.</span>
             Please check out directions at their website:
           </p>
-          <button class="btn btn--large">
+          <a class="btn btn--large">
             <span>Directions</span>
             <svg class="recipe__directions__btn--icon btn--icon">
               <use xlink:href="src/img/sprite.svg#icon-arrow-thin-right" />
             </svg>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -239,8 +239,8 @@
     <!-- -------------------------------------------------- -->
     <!-- -------------------- Upload ---------------------- -->
 
-    <div class="overlay"></div>
-    <div class="upload__container">
+    <div class="overlay hidden"></div>
+    <div class="upload__container hidden">
       <form class="upload">
         <div class="btn btn--close hover">
           <svg class="">
@@ -302,7 +302,7 @@
           <h2 class="column__2--heading-2">Unit</h2>
 
           <div class="ingredient">
-            <input type="text" name="ingredient" value="Żur" required />
+            <input type="text" name="description" value="Żur" required />
             <input type="text" name="quantity" value="1" />
             <input type="text" name="unit" value="bottle" />
             <div class="ingredient__btns">
@@ -313,7 +313,7 @@
           </div>
 
           <div class="ingredient">
-            <input type="text" name="ingredient" value="Kiełby" required />
+            <input type="text" name="description" value="Kiełby" required />
             <input type="text" name="quantity" value="6" />
             <input type="text" name="unit" value="" />
             <div class="ingredient__btns">
@@ -327,7 +327,7 @@
           </div>
 
           <div class="ingredient">
-            <input type="text" name="ingredient" value="Jajka" required />
+            <input type="text" name="description" value="Jajka" required />
             <input type="text" name="quantity" value="4" />
             <input type="text" name="unit" value="" />
             <div class="ingredient__btns">

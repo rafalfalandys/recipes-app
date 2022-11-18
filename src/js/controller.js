@@ -115,12 +115,18 @@ const controlBookmarks = async function () {
 ///////////////////// Control upload ///////////////////////
 ////////////////////////////////////////////////////////////
 
-const controlUploadRecipe = function (dataArr) {
-  console.log(dataArr);
-  const recipeData = dataArr.slice(0, 6);
-  const ingredientsData = dataArr.slice(6);
-  console.log(recipeData);
-  console.log(ingredientsData);
+const controlUploadRecipe = async function (dataArr) {
+  try {
+    await model.uploadRecipeObject(dataArr);
+    model.toggleBookmark();
+    await model.loadBookmarksObjects();
+    bookmarksView.render(model.state.bookmarksObjects);
+    model.setLocalStorage();
+
+    recipeView.render(model.state.recipe);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 ////////////////////////////////////////////////////////////

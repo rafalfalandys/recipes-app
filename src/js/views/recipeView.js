@@ -116,12 +116,12 @@ class RecipeView extends View {
                 <span class="recipe--publisher">${data.publisher}</span>
                 . Please check out directions at their website:
             </p>
-            <button class="btn btn--large" href="${data.url}" target='_blank'>
+            <a class="btn btn--large" href="${data.url}" target='_blank'>
                 <span>Directions</span>
                 <svg class="recipe__directions__btn--icon btn--icon">
                     <use xlink:href="${icons}#icon-arrow-thin-right" />
                 </svg>
-            </button>
+            </a>
         </div>
         `;
   }

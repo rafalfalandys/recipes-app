@@ -36,6 +36,7 @@ class UploadRecipeView extends View {
       e.preventDefault();
       const form = this.querySelector(".upload");
       const dataArr = [...new FormData(form)];
+      // const data = Object.fromEntries(dataArr);
       handler(dataArr);
     });
   }

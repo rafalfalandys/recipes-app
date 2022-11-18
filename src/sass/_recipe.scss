@@ -63,6 +63,8 @@
   }
 
   &__directions {
+    display: flex;
+    flex-direction: column;
     .btn {
       margin: 5rem auto;
     }
