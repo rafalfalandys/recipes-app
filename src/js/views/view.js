@@ -9,7 +9,7 @@ export default class View {
   }
 
   render(data) {
-    if (data.length === 0) return this.renderError();
+    if (data?.length === 0) return this.renderError(); // that one is for 0 values of search view
     this._data = data;
     this._clearView();
     this._parentEl.insertAdjacentHTML(
@@ -72,6 +72,16 @@ export default class View {
           <use xlink:href="${icons}#icon-alert-triangle"></use>
         </svg>
         <span>&nbsp;${this._errorMessage}</span>
+      </div>
+      `;
+    this._clearView();
+    this._parentEl.insertAdjacentHTML("afterbegin", markup);
+  }
+
+  renderMessage() {
+    const markup = `
+      <div class="message">
+        <span>${this._message}</span>
       </div>
       `;
     this._clearView();

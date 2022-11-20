@@ -5,6 +5,7 @@ import searchView from "./views/searchView.js";
 import paginationView from "./views/paginationView.js";
 import bookmarksView from "./views/bookmarksView.js";
 import uploadRecipeView from "./views/uploadRecipeView.js";
+import { wait } from "./helper.js";
 import { async } from "regenerator-runtime";
 
 ////////////////////////////////////////////////////////////
@@ -117,18 +118,29 @@ const controlBookmarks = async function () {
 
 const controlUploadRecipe = async function (dataArr) {
   try {
+    // render spinner
+    uploadRecipeView.renderSpinner();
+    // upload recipe
     await model.uploadRecipeObject(dataArr);
-    model.toggleBookmark();
-    await model.loadBookmarksObjects();
-    bookmarksView.render(model.state.bookmarksObjects);
-    model.setLocalStorage();
-
+    // render recipe
     recipeView.render(model.state.recipe);
+    // bookmark it
+    controlAddBookmark();
+    // render message
+    uploadRecipeView.renderMessage();
+    //
+    await wait(3);
+    uploadRecipeView.hideUploadWindow();
+    await wait(1);
+    uploadRecipeView.render();
   } catch (error) {
-    console.log(error);
+    uploadRecipeView.renderError();
+    setTimeout(() => {
+      uploadRecipeView.hideUploadWindow();
+      uploadRecipeView.render();
+    });
   }
 };
-
 ////////////////////////////////////////////////////////////
 /////////////////////////// Init ///////////////////////////
 ////////////////////////////////////////////////////////////

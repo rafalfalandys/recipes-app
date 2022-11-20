@@ -17,3 +17,9 @@ export const AJAX = async function (url, uploadData = undefined) {
     throw new Error();
   }
 };
+
+export const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};

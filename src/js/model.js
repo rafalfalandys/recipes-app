@@ -179,14 +179,11 @@ export const uploadRecipeObject = async function (dataArr) {
       servings: +recipeData.servings,
       ingredients: ingredients,
     };
-    console.log(recipe);
 
     const data = await AJAX(`${API_URL}?key=${API_KEY}`, recipe);
     const id = data.data.recipe.id;
 
     await loadRecipe(id);
-
-    console.log(state.recipe);
   } catch (error) {
     console.log(error);
     throw new Error();
