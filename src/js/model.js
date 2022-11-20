@@ -47,6 +47,7 @@ const buildPreviewRecipeObject = function (recipe) {
     image: recipe.image_url,
     publisher: recipe.publisher,
     title: recipe.title,
+    ...(recipe.key && { key: recipe.key }),
   };
 };
 
@@ -54,15 +55,15 @@ const buildPreviewRecipeObject = function (recipe) {
 export const loadSearchResults = async function (query) {
   try {
     // const json = await AJAX(`${API_URL}?search=${query}`);
-    const json = await AJAX(`${API_URL}?search=${query}?key=${API_KEY}`);
+    const json = await AJAX(`${API_URL}?search=${query}&key=${API_KEY}`);
     const searchResults = json.data.recipes;
     state.searchResults.page = 1;
     state.searchResults.results = searchResults.map((recipe) => {
       return buildPreviewRecipeObject(recipe);
     });
+    console.log(state.searchResults.results);
   } catch (err) {
     throw new Error();
-    console.log(err);
   }
 };
 
@@ -191,3 +192,11 @@ export const uploadRecipeObject = async function (dataArr) {
     throw new Error();
   }
 };
+
+const deleteRecipe = async function (id) {
+  await fetch(`${API_URL}${id}?key=${API_KEY}`, {
+    method: "DELETE",
+  });
+};
+
+// deleteRecipe("6377bef320736600162dde98");
