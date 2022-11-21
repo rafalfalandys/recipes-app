@@ -22,15 +22,9 @@ $icon-large: 3rem;
 
 $max-width: 90rem;
 
-$break: 600px;
-
 // Beautifullness
 html {
   font-size: 62.5%;
-
-  @media only screen and (max-width: 800px) {
-    font-size: 50%;
-  }
 }
 
 * {
@@ -57,11 +51,7 @@ body {
 .main-container {
   background-color: $color-base-white;
   min-height: calc(100vh - 3rem);
-
   max-width: $max-width;
-  @media only screen and (max-width: 800px) {
-    min-width: 100vw;
-  }
   margin: 1.5rem auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
