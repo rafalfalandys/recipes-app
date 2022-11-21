@@ -11,12 +11,14 @@ class PaginationView extends View {
     });
   }
 
-  _isItBtnNext(isNext) {
+  _generteSingleBtnMarkup(isNext) {
     return `
         <button class="btn--${isNext ? "next" : "prev"} btn">
-            Page &nbsp;<span class="page-btn-no">${
+            ${isNext ? "" : "&nbsp;&larr;"}
+            <span>Page &nbsp;</span>
+            <span class="page-btn-no">${
               isNext ? this._data.page + 1 : this._data.page - 1
-            }</span>
+            }</span>${isNext ? "&nbsp;&rarr;" : ""}
         </button>
     `;
   }
@@ -27,16 +29,17 @@ class PaginationView extends View {
 
     // if page is one and there are others
     if (data.page === 1 && data.pagesQty > data.page)
-      return this._isItBtnNext(true);
+      return this._generteSingleBtnMarkup(true);
 
     // if page is last
-    if (data.page === data.pagesQty) return this._isItBtnNext(false);
+    if (data.page === data.pagesQty) return this._generteSingleBtnMarkup(false);
 
     // if page is somewhere inbetween
     if (data.page > 1 && data.page < data.pagesQty) {
-      const markup = [this._isItBtnNext(false), this._isItBtnNext(true)].join(
-        " "
-      );
+      const markup = [
+        this._generteSingleBtnMarkup(false),
+        this._generteSingleBtnMarkup(true),
+      ].join(" ");
       return markup;
     }
   }
