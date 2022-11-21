@@ -12,6 +12,7 @@ export const state = {
   },
   bookmarksIDs: [],
   bookmarksObjects: [],
+  bookmarks: [],
 };
 
 const createRecipeObject = function (recipeData) {
@@ -24,7 +25,9 @@ const createRecipeObject = function (recipeData) {
     servings: recipeData.servings,
     url: recipeData.source_url,
     title: recipeData.title,
-    isBookmarked: state.bookmarksIDs.some((id) => id === recipeData.id)
+    isBookmarked: state.bookmarks.some(
+      (bookmark) => bookmark.id === recipeData.id
+    )
       ? true
       : false,
   };
@@ -61,7 +64,6 @@ export const loadSearchResults = async function (query) {
     state.searchResults.results = searchResults.map((recipe) => {
       return buildPreviewRecipeObject(recipe);
     });
-    console.log(state.searchResults.results);
   } catch (err) {
     throw new Error();
   }
@@ -101,54 +103,35 @@ export const changeServings = function (addOrRemove) {
 };
 
 export const toggleBookmark = function () {
-  if (
-    !state.bookmarksIDs.some((bookmarkID) => bookmarkID === state.recipe.id)
-  ) {
-    state.bookmarksIDs.push(state.recipe.id);
+  if (!state.bookmarks.some((bookmark) => bookmark.id === state.recipe.id)) {
+    state.bookmarks.push(state.recipe);
     state.recipe.isBookmarked = true;
   } else {
-    state.bookmarksIDs.splice(state.bookmarksIDs.indexOf(state.recipe.id), 1);
+    const IDsArr = state.bookmarks.map((bookmark) => bookmark.id);
+    const indexOf = IDsArr.indexOf(state.recipe.id);
+    state.bookmarks.splice(indexOf, 1);
     state.recipe.isBookmarked = false;
   }
 };
 
-const loadBookmarksSingleObject = async function (id) {
-  try {
-    // const res = await fetch(`${API_URL}${id}`);
-    // const json = await res.json();
-    const json = await AJAX(`${API_URL}${id}`);
-    const recipeData = json.data.recipe;
-    const recipe = buildPreviewRecipeObject(recipeData);
-    // {
-    //   id: recipeData.id,
-    //   image: recipeData.image_url,
-    //   publisher: recipeData.publisher,
-    //   title: recipeData.title,
-    // };
-    return recipe;
-  } catch (error) {
-    throw new Error();
-  }
-};
-
-export const loadBookmarksObjects = async function () {
-  try {
-    state.bookmarksObjects = await Promise.all(
-      state.bookmarksIDs.map((id) => loadBookmarksSingleObject(id))
-    );
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const setLocalStorage = function () {
-  localStorage.setItem("bookmarksIDs", JSON.stringify(state.bookmarksIDs));
+  localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
 };
 
 export const loadLocalStorage = function () {
-  if (!localStorage.bookmarksIDs) return;
-  const bookmarksIDs = JSON.parse(localStorage.bookmarksIDs);
-  state.bookmarksIDs = bookmarksIDs;
+  if (!localStorage.bookmarks) return;
+  state.bookmarks = JSON.parse(localStorage.bookmarks);
+};
+
+const separateIngredients = function (dataArr, ingredientsArr) {
+  const ingredientsArrays = [];
+  while (dataArr.length) {
+    ingredientsArrays.push(dataArr.splice(0, 3));
+  }
+  ingredientsArrays.forEach((arr) => {
+    const ingredient = Object.fromEntries(arr);
+    ingredientsArr.push(ingredient);
+  });
 };
 
 export const uploadRecipeObject = async function (dataArr) {
@@ -157,18 +140,7 @@ export const uploadRecipeObject = async function (dataArr) {
     const ingredientsData = dataArr.slice(6);
     const ingredients = [];
 
-    const separateIngredients = function (array) {
-      const ingredientsArrays = [];
-      while (array.length) {
-        ingredientsArrays.push(array.splice(0, 3));
-      }
-      ingredientsArrays.forEach((arr) => {
-        const ingredient = Object.fromEntries(arr);
-        ingredients.push(ingredient);
-      });
-    };
-
-    separateIngredients(ingredientsData);
+    separateIngredients(ingredientsData, ingredients);
 
     const recipe = {
       title: recipeData.title,

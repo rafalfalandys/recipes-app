@@ -90,26 +90,22 @@ const controlPagination = function (isNext) {
 //////////////////// Control bookmarks /////////////////////
 ////////////////////////////////////////////////////////////
 
-const controlAddBookmark = async function () {
-  try {
-    model.toggleBookmark();
-    await model.loadBookmarksObjects();
-    bookmarksView.render(model.state.bookmarksObjects);
-    recipeView.update(model.state.recipe);
-    model.setLocalStorage();
-  } catch (error) {
-    console.log(error);
-  }
+const controlAddBookmark = function () {
+  // handle bookmarks in model
+  model.toggleBookmark();
+  //upload local storage
+  model.setLocalStorage();
+  // render bookmarks panel
+  bookmarksView.render(model.state.bookmarks);
+  //update current recipe view
+  recipeView.update(model.state.recipe);
 };
 
-const controlBookmarks = async function () {
-  try {
-    model.loadLocalStorage();
-    await model.loadBookmarksObjects();
-    bookmarksView.render(model.state.bookmarksObjects);
-  } catch (error) {
-    console.log(error);
-  }
+const controlLoadBookmarks = function () {
+  // get local storage into model
+  model.loadLocalStorage();
+  // render bookmarks view
+  bookmarksView.render(model.state.bookmarks);
 };
 
 ////////////////////////////////////////////////////////////
@@ -128,6 +124,8 @@ const controlUploadRecipe = async function (dataArr) {
     controlAddBookmark();
     // render message
     uploadRecipeView.renderMessage();
+    // change id in url
+    window.history.pushState(null, "", `#${model.state.recipe.id}`);
     //
     await wait(3);
     uploadRecipeView.hideUploadWindow();
@@ -146,7 +144,7 @@ const controlUploadRecipe = async function (dataArr) {
 ////////////////////////////////////////////////////////////
 
 const init = function () {
-  bookmarksView.addHandlerUrlChangeOrLoad(controlBookmarks);
+  bookmarksView.addHandlerUrlChangeOrLoad(controlLoadBookmarks);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerPageChange(controlPagination);
   recipeView.addHandlerUrlChangeOrLoad(controlRecipe);
