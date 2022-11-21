@@ -10,8 +10,6 @@ export const state = {
     resultsPerPage: 10,
     pagesQty: 1,
   },
-  bookmarksIDs: [],
-  bookmarksObjects: [],
   bookmarks: [],
 };
 
