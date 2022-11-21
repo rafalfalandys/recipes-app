@@ -20,5 +20,14 @@
 .copyright {
   padding: 1.5rem;
   font-size: $font-smallest;
-  color: $color-grey;
+  position: relative;
+  p {
+    color: $color-grey;
+    @media only screen and (max-width: $break-phone) {
+      position: absolute;
+      width: 100vw;
+      bottom: 0.5rem;
+      // left: 0;
+    }
+  }
 }

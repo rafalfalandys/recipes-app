@@ -39,6 +39,10 @@
     display: flex;
     justify-content: space-between;
     padding: 6rem 3rem 2rem 3rem;
+
+    @media only screen and (max-width: $break-phone) {
+      padding: 6rem 1rem 2rem 1rem;
+    }
   }
 
   &__info {
@@ -47,6 +51,10 @@
     &--text {
       margin-right: 1.5rem;
     }
+  }
+
+  &--buttons {
+    display: flex;
   }
 
   &__ingredients {
@@ -59,6 +67,10 @@
       grid-template-columns: 1fr 1fr;
       padding: 0 2rem;
       line-height: 3rem;
+
+      @media only screen and (max-width: $break-phone) {
+        grid-template-columns: 1fr;
+      }
     }
   }
 

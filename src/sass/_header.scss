@@ -13,6 +13,15 @@
   align-items: center;
   gap: 2rem;
   z-index: 2;
+
+  @media only screen and (max-width: $break-phone) {
+    gap: 1rem;
+    // position: absolute;
+    // width: 100%;
+    // height: auto;
+    // background-color: $color-base-white;
+    // flex-direction: column;
+  }
 }
 
 .sticky {
@@ -35,6 +44,11 @@
   &__field {
     border: none;
     width: 19rem;
+
+    @media only screen and (max-width: $break-tablet) {
+      width: 23rem;
+      font-size: $font-medium;
+    }
 
     &:focus {
       outline: none;

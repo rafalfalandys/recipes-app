@@ -12,10 +12,20 @@
   cursor: pointer;
   transform: scale(1);
 
+  @media only screen and (max-width: $break-phone) {
+    padding: 1rem 1.5rem;
+  }
+
   svg {
     fill: $color-grey-dark;
-    min-height: 2.5rem;
-    min-width: 2.5rem;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  span {
+    @media only screen and (max-width: $break-phone) {
+      display: none;
+    }
   }
 
   &:focus {
@@ -32,6 +42,10 @@
     span {
       text-transform: uppercase;
       font-weight: 800;
+
+      @media only screen and (max-width: $break-phone) {
+        display: block;
+      }
     }
   }
 
