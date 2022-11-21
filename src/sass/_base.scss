@@ -27,6 +27,8 @@ $break-tablet: 800px;
 
 // Beautifullness
 html {
+  position: absolute;
+  overflow-x: hidden;
   font-size: 62.5%;
 
   @media only screen and (max-width: $break-tablet) {
