@@ -32,7 +32,7 @@
   max-width: $max-width;
 
   @media only screen and (max-width: $break-tablet) {
-    max-width: 100%;
+    max-width: 95vw;
   }
 }
 
