@@ -13,6 +13,7 @@ export const state = {
   bookmarks: [],
 };
 
+// build internal recipe object
 const createRecipeObject = function (recipeData) {
   return {
     cookingTime: recipeData.cooking_time,
@@ -31,6 +32,7 @@ const createRecipeObject = function (recipeData) {
   };
 };
 
+// load recipe from api
 export const loadRecipe = async function (id) {
   try {
     const res = await fetch(`${API_URL}${id}?key=${API_KEY}`);
@@ -42,6 +44,7 @@ export const loadRecipe = async function (id) {
   }
 };
 
+// create single preview object
 const buildPreviewRecipeObject = function (recipe) {
   return {
     id: recipe.id,
@@ -52,10 +55,9 @@ const buildPreviewRecipeObject = function (recipe) {
   };
 };
 
-// Search Results
+// Load search results to state
 export const loadSearchResults = async function (query) {
   try {
-    // const json = await AJAX(`${API_URL}?search=${query}`);
     const json = await AJAX(`${API_URL}?search=${query}&key=${API_KEY}`);
     const searchResults = json.data.recipes;
     state.searchResults.page = 1;
@@ -67,6 +69,7 @@ export const loadSearchResults = async function (query) {
   }
 };
 
+// passing no of results per page - math bases on view height
 export const loadNumberOfResultsPerPage = function (resultsPerPage) {
   return (state.searchResults.resultsPerPage = resultsPerPage);
 };
