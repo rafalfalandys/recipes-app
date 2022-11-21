@@ -22,8 +22,9 @@ $icon-large: 3rem;
 
 $max-width: 90rem;
 
-// Beautifullness
+$break: 600px;
 
+// Beautifullness
 html {
   font-size: 62.5%;
 
@@ -57,7 +58,7 @@ body {
   background-color: $color-base-white;
   min-height: calc(100vh - 3rem);
 
-  // max-width: $max-width;
+  max-width: $max-width;
   @media only screen and (max-width: 800px) {
     min-width: 100vw;
   }
