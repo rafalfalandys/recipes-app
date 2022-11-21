@@ -12,6 +12,12 @@
   cursor: pointer;
   transform: scale(1);
 
+  svg {
+    fill: $color-grey-dark;
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+  }
+
   &:focus {
     // outline: $color-grey-light-very solid 1px;
     outline: none;
