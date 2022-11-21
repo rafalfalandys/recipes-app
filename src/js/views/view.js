@@ -9,7 +9,7 @@ export default class View {
   }
 
   render(data) {
-    if (data?.length === 0) return this.renderError(); // that one is for 0 values of search view
+    if (data?.length === 0 || data === {}) return this.renderError(); // that one is for 0 values of search view
     this._data = data;
     this._clearView();
     this._parentEl.insertAdjacentHTML(

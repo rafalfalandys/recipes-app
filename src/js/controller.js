@@ -7,6 +7,7 @@ import bookmarksView from "./views/bookmarksView.js";
 import uploadRecipeView from "./views/uploadRecipeView.js";
 import { wait } from "./helper.js";
 import { async } from "regenerator-runtime";
+import logoView from "./views/logoView.js";
 
 ////////////////////////////////////////////////////////////
 ////////////////////// Control recipe //////////////////////
@@ -139,6 +140,12 @@ const controlUploadRecipe = async function (dataArr) {
     });
   }
 };
+
+const controlReload = function () {
+  model.stateInit();
+  window.history.pushState(null, "", "#");
+  document.location.reload();
+};
 ////////////////////////////////////////////////////////////
 /////////////////////////// Init ///////////////////////////
 ////////////////////////////////////////////////////////////
@@ -151,6 +158,7 @@ const init = function () {
   recipeView.addHandlerServingsChange(controlServingsChange);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   uploadRecipeView.addHandlerCollectData(controlUploadRecipe);
+  logoView.addHandlerReload(controlReload);
 };
 
 init();

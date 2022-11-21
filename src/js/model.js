@@ -1,17 +1,21 @@
 import { API_KEY, API_URL } from "./config";
 import { AJAX } from "./helper.js";
 
-export const state = {
-  recipe: {},
-  searchResults: {
+export const state = {};
+
+export const stateInit = function () {
+  state.recipe = {};
+  state.searchResults = {
     query: "",
     results: [],
-    page: 2,
+    page: 1,
     resultsPerPage: 10,
     pagesQty: 1,
-  },
-  bookmarks: [],
+  };
+  state.bookmarks = [];
 };
+
+stateInit();
 
 // build internal recipe object
 const createRecipeObject = function (recipeData) {
@@ -169,4 +173,6 @@ const deleteRecipe = async function (id) {
   });
 };
 
-// deleteRecipe("6377bef320736600162dde98");
+export const resetState = function () {
+  state = stateInit;
+};
