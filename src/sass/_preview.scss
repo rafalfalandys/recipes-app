@@ -103,6 +103,15 @@
         font-size: $font-medium;
         font-style: italic;
         z-index: 1;
+
+        span {
+          color: $color-grey-dark;
+          -webkit-box-decoration-break: clone;
+          box-decoration-break: slice;
+          padding: 0 0.2rem;
+          line-height: 130%;
+          background-color: rgba($color-grey-light, 0.7);
+        }
       }
 
       &--publisher {

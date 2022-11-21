@@ -15,7 +15,7 @@
   z-index: 2;
 
   @media only screen and (max-width: $break-phone) {
-    gap: 1rem;
+    // gap: 1rem;
     // position: absolute;
     // width: 100%;
     // height: auto;
@@ -29,7 +29,11 @@
   position: fixed;
   top: 0;
   width: 100%;
-  max-width: 90rem;
+  max-width: $max-width;
+
+  @media only screen and (max-width: $break-tablet) {
+    max-width: 100%;
+  }
 }
 
 .logo {

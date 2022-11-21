@@ -10,7 +10,7 @@ export default class PreviewView extends View {
                 alt="meal"
               />
             </figure>
-            <h3 class="preview__data preview__data--title">${recipe.title}</h3>
+            <h3 class="preview__data preview__data--title"><span>${recipe.title}</span></h3>
             <p class="preview__data preview__data--publisher">${recipe.publisher}</p>
         </a>
     `;

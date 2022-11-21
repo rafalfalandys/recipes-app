@@ -70,6 +70,7 @@
 
       @media only screen and (max-width: $break-phone) {
         grid-template-columns: 1fr;
+        line-height: 2.8rem;
       }
     }
   }
@@ -77,6 +78,7 @@
   &__directions {
     display: flex;
     flex-direction: column;
+    padding: 0 2rem;
     .btn {
       margin: 5rem auto;
     }

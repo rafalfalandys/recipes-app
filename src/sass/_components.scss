@@ -106,6 +106,9 @@
     &--next {
       right: 1.5rem;
     }
+    @media only screen and (max-width: $break-tablet) {
+      color: $color-grey-dark;
+    }
   }
 }
 
@@ -141,6 +144,10 @@
   justify-content: center;
   align-items: center;
   color: $color-grey;
+
+  @media only screen and (max-width: $break-phone) {
+    margin: 5rem 1rem;
+  }
 
   svg {
     fill: $color-grey;
