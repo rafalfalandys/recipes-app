@@ -73,8 +73,8 @@ body {
   // gap: 2rem;
 
   @media only screen and (max-width: $break-tablet) {
-    min-height: 85vh;
-    min-width: 100vw;
+    min-height: 80vh;
+    // min-width: 100vw;
     // width: 100%;
   }
   @media only screen and (max-width: $break-phone) {
