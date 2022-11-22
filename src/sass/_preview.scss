@@ -41,6 +41,15 @@
     &::before {
       opacity: 0;
     }
+    @media only screen and (max-width: $break-tablet) {
+      transform: translateX(0) scale(0.9);
+      // box-shadow: 0 2px 4px rgba($color-grey-dark, 0.7);
+      span {
+        @media only screen and (max-width: $break-tablet) {
+          font-weight: 700;
+        }
+      }
+    }
   }
 
   &:active {
