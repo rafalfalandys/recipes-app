@@ -77,6 +77,11 @@
     width: $icon-small;
     fill: $color-grey-dark;
     margin-right: 1rem;
+    // @media only screen and (max-width: $break-tablet) {
+    //   &:hover {
+    //     transform: scale(1);
+    //   }
+    // }
   }
 }
 
@@ -171,6 +176,11 @@
   transition: all 0.4s;
   &:hover {
     transform: scale(1.2);
+    @media only screen and (max-width: $break-tablet) {
+      &:hover {
+        transform: scale(1);
+      }
+    }
   }
   &:active {
     transform: scale(1.1);
