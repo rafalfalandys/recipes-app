@@ -2,6 +2,11 @@
   width: 100%;
   font-size: $font-small;
   grid-row: 2/3;
+  overflow: auto;
+
+  @media only screen and (max-width: $break-phone) {
+    height: calc($height-phone - (2 * $height-header));
+  }
 
   &--image {
     height: 25rem;

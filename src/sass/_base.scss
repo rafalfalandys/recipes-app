@@ -20,7 +20,9 @@ $icon-small: 1.7rem;
 $icon-medium: 2rem;
 $icon-large: 3rem;
 
-$max-width: 90rem;
+$max-width: 100rem;
+$height-phone: 84vh;
+$height-header: 6.5rem;
 
 $break-phone: 650px;
 $break-tablet: 800px;
@@ -73,8 +75,9 @@ body {
   // gap: 2rem;
 
   @media only screen and (max-width: $break-tablet) {
-    min-height: 84vh;
-    width: 95vw;
+    min-height: $height-phone;
+    width: 100vw;
+    margin: 0;
     // width: 100%;
   }
   @media only screen and (max-width: $break-phone) {

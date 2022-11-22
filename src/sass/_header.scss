@@ -3,11 +3,11 @@
     grid-column: 1 / 3;
     width: 100%;
     transition: all 1s;
-    height: 6.5rem;
+    height: $height-header;
     border-radius: $border-radius;
   }
 
-  height: 6.5rem;
+  height: $height-header;
   display: flex;
   justify-content: space-between;
   align-items: center;
