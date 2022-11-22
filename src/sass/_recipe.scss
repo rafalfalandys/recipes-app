@@ -3,6 +3,7 @@
   font-size: $font-small;
   grid-row: 2/3;
   overflow: auto;
+  height: calc(100vh - (2 * $height-header) - (2 * $margin-main));
 
   @media only screen and (max-width: $break-phone) {
     height: calc($height-phone - (2 * $height-header));

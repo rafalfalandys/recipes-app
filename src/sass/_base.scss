@@ -13,6 +13,8 @@ $font-medium: 1.6rem;
 $font-large: 2.4rem;
 $font-large-very: 3.6rem;
 
+$margin-main: 1.5rem;
+
 $border-radius-small: 2px;
 $border-radius: 4px;
 
@@ -66,7 +68,7 @@ body {
   min-height: calc(100vh - 3rem);
   max-width: $max-width;
 
-  margin: 1.5rem auto;
+  margin: $margin-main auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: auto 1fr;
