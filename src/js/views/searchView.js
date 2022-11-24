@@ -1,4 +1,5 @@
 import View from "./view.js";
+import searchResultsView from "./searchResultsView.js";
 
 class SearchView extends View {
   _parentEl = document.querySelector(".search");
@@ -17,6 +18,7 @@ class SearchView extends View {
   addHandlerSearch(handler) {
     this._parentEl.addEventListener("submit", function (e) {
       e.preventDefault();
+      searchResultsView.toggleSidebar();
       handler();
     });
   }

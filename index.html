@@ -96,10 +96,15 @@
       <!-- ------------------ search results----------------- -->
 
       <div class="search-results">
-        <ul class="results results--link">
-          <!-- <div class="message">No recipes found. Search again</div> -->
+        <div class="results-and-btns moved">
+          <svg class="btn-slider icon--large">
+            <use xlink:href="./src/img/sprite.svg#icon-cheveron-left" />
+          </svg>
+          <ul class="results results--link">
+            <div class="message">Search for the recipes</div>
+            <!-- <div class="message">No recipes found. Search again</div> -->
 
-          <!-- <div class="preview">
+            <!-- <div class="preview">
             <figure class="preview--image">
               <img
                 src="https://images.unsplash.com/photo-1652288282543-0fc019cfc457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
@@ -122,18 +127,18 @@
             <h3 class="preview__data preview__data--title">Pizza 'Pizzka'</h3>
             <p class="preview__data preview__data--publisher">Fala</p>
           </div> -->
-        </ul>
+          </ul>
 
-        <!-- <div class="spinner">
+          <!-- <div class="spinner">
           <svg>
             <use xlink:href="src/img/sprite.svg#icon-loader"></use>
           </svg>
         </div> -->
 
-        <!-- ------------------ pagination -------------------- -->
+          <!-- ------------------ pagination -------------------- -->
 
-        <div class="pagination">
-          <!-- <button class="btn--prev btn">
+          <div class="pagination">
+            <!-- <button class="btn--prev btn">
             &larr;&nbsp; <span>Page&nbsp;</span
             ><span class="page-btn-no">1</span>
           </button>
@@ -141,6 +146,7 @@
             <span>Page</span> &nbsp;<span class="page-btn-no">3 </span
             >&nbsp;&rarr;
           </button> -->
+          </div>
         </div>
         <div class="copyright">
           <p>
@@ -251,7 +257,8 @@
     <!-- -------------------------------------------------- -->
     <!-- -------------------- Upload ---------------------- -->
 
-    <div class="overlay hidden"></div>
+    <div class="overlay overlay__upload hidden"></div>
+    <div class="overlay overlay__sidebar hidden"></div>
     <div class="upload__container hidden">
       <form class="upload">
         <div class="btn btn--close hover">

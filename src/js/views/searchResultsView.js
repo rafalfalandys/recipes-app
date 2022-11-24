@@ -4,7 +4,19 @@ import { PREVIEW_HEIGHT } from "../config.js";
 
 class SearchResultsView extends PreviewView {
   _parentEl = document.querySelector(".results--link");
+  _containerEl = document.querySelector(".results-and-btns");
+  _overlay = document.querySelector(".overlay__sidebar");
+
   _errorMessage = "No recipes found. Search again";
+
+  constructor() {
+    super();
+    this._containerEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".btn-slider");
+      if (!btn) return;
+      this.toggleSidebar();
+    });
+  }
 
   getResultsPerPageNo = function () {
     const headerH = document.querySelector(".header").offsetHeight;
@@ -18,6 +30,17 @@ class SearchResultsView extends PreviewView {
     const resultsNo = Math.floor(resultsH / PREVIEW_HEIGHT);
 
     return resultsNo;
+  };
+
+  toggleSidebar = () => {
+    console.log("siema");
+    this._overlay.classList.toggle("hidden");
+    this._containerEl.classList.toggle("moved");
+  };
+
+  hideSidebar = () => {
+    this._overlay.classList.add("hidden");
+    this._containerEl.classList.add("moved");
   };
 }
 

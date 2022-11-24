@@ -27,6 +27,9 @@ const controlRecipe = async function () {
 
     // 4) render
     recipeView.render(model.state.recipe);
+
+    // 5) hide sidebar on phones
+    searchResultsView.hideSidebar();
   } catch (error) {
     console.log(error);
     recipeView.renderError();

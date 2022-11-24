@@ -62,6 +62,23 @@
   &:active {
     transform: scale(1);
   }
+
+  &-slider {
+    position: absolute;
+    right: 0;
+    top: 17rem;
+    transform: translate(60%);
+    background-color: $color-base-white;
+    clip-path: circle(50%);
+    width: $icon-large;
+    height: $icon-large;
+    fill: $color-grey-dark;
+
+    display: none;
+    @media only screen and (max-width: $break-phone) {
+      display: block;
+    }
+  }
 }
 
 .heading-2 {
@@ -83,13 +100,21 @@
     //   }
     // }
   }
+  &--medium {
+    height: $icon-medium;
+    width: $icon-medium;
+  }
+  &--large {
+    height: $icon-large;
+    width: $icon-large;
+  }
 }
 
 .pagination {
   .btn {
     position: absolute;
     gap: 0;
-    bottom: 1rem;
+    bottom: 2rem;
     padding: 0.5rem 1.4rem;
     font-size: $font-small;
     background-color: $color-grey-light-very;
@@ -113,6 +138,9 @@
     }
     @media only screen and (max-width: $break-tablet) {
       color: $color-grey-dark;
+      span {
+        display: inline;
+      }
     }
   }
 }

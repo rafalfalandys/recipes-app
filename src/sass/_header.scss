@@ -5,6 +5,7 @@
     transition: all 1s;
     height: $height-header;
     border-radius: $border-radius;
+    z-index: 3;
   }
 
   height: $height-header;
@@ -16,6 +17,7 @@
 
   @media only screen and (max-width: $break-phone) {
     gap: 1rem;
+    background-color: $color-base-white;
     // position: absolute;
     // width: 100%;
     // height: auto;

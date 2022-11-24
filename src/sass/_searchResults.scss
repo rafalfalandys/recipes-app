@@ -1,8 +1,47 @@
+.overlay {
+  &__sidebar {
+    background-color: rgba($color-grey-dark, 0.5);
+    z-index: 2;
+    display: none;
+
+    @media only screen and (max-width: $break-phone) {
+      display: block;
+    }
+  }
+}
+
 .search-results {
   display: flex;
   flex-direction: column;
   justify-content: start;
   grid-row: 2/3;
+}
+
+.results-and-btns {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s;
+  height: 100%;
+
+  @media only screen and (max-width: $break-phone) {
+    padding-right: 1.5rem;
+    position: absolute;
+    height: calc(100% - $height-header);
+    width: 60vw;
+    z-index: 3;
+    background-color: $color-base-white;
+    // border-radius: $border-radius;
+  }
+}
+
+.moved {
+  @media only screen and (max-width: $break-phone) {
+    transition: all 0.4s;
+    transform: translateX(-100%);
+    svg {
+      transform: translate(70%) rotate(180deg);
+    }
+  }
 }
 
 .results {
@@ -22,13 +61,17 @@
   font-size: $font-smallest;
   position: relative;
   height: $height-header;
+  // transform: translateX(10rem);
   p {
     color: $color-grey;
     @media only screen and (max-width: $break-phone) {
-      position: absolute;
-      width: 100vw;
-      bottom: 0.5rem;
-      // left: 0;
     }
+  }
+
+  @media only screen and (max-width: $break-phone) {
+    position: absolute;
+    height: $height-footer;
+    width: 100vw;
+    bottom: 0.5rem;
   }
 }

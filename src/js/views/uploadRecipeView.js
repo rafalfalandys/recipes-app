@@ -8,7 +8,7 @@ class UploadRecipeView extends View {
   _errorMessage = "Something went wrong. Please try again";
 
   _btn = document.querySelector(".btn--add-recipe");
-  _overlay = document.querySelector(".overlay");
+  _overlay = document.querySelector(".overlay__upload");
   _closeBtn = document.querySelector(".btn--close");
 
   constructor() {
