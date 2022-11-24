@@ -18,7 +18,6 @@ class SearchView extends View {
   addHandlerSearch(handler) {
     this._parentEl.addEventListener("submit", function (e) {
       e.preventDefault();
-      searchResultsView.toggleSidebar();
       handler();
     });
   }

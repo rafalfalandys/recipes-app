@@ -33,7 +33,6 @@ class SearchResultsView extends PreviewView {
   };
 
   toggleSidebar = () => {
-    console.log("siema");
     this._overlay.classList.toggle("hidden");
     this._containerEl.classList.toggle("moved");
   };
