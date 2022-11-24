@@ -67,8 +67,9 @@
     position: absolute;
     right: 0;
     top: 17rem;
-    transform: translate(120%) rotate(360deg);
+    transform: translate(120%) rotate(0);
     background-color: $color-base-white;
+    transition: all 0.4s;
     // -webkit-clip-path: circle(50%);
     // clip-path: circle(50%);
     border-radius: 50%;
@@ -80,6 +81,11 @@
     @media only screen and (max-width: $break-phone) {
       display: block;
     }
+  }
+}
+.moved {
+  svg {
+    transform: translate(120%) rotate(180deg);
   }
 }
 
