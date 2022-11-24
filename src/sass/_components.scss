@@ -69,8 +69,9 @@
     top: 17rem;
     transform: translate(120%) rotate(360deg);
     background-color: $color-base-white;
-    -webkit-clip-path: circle(50%);
-    clip-path: circle(50%);
+    // -webkit-clip-path: circle(50%);
+    // clip-path: circle(50%);
+    border-radius: 50%;
     width: $icon-large;
     height: $icon-large;
     fill: $color-grey-dark;

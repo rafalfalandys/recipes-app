@@ -42,6 +42,11 @@ class SearchResultsView extends PreviewView {
     this._overlay.classList.add("hidden");
     this._containerEl.classList.add("moved");
   };
+
+  showSidebar = () => {
+    this._overlay.classList.remove("hidden");
+    this._containerEl.classList.remove("moved");
+  };
 }
 
 export default new SearchResultsView();

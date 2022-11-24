@@ -69,6 +69,9 @@ const controlSearchResults = async function () {
 
     // 5) render pagination
     paginationView.render(model.state.searchResults);
+
+    //6) show sidebar on phones
+    searchResultsView.showSidebar();
   } catch (err) {
     // throw new Error();
     console.log(err);
