@@ -69,7 +69,7 @@
     top: 17rem;
     transform: translate(60%);
     background-color: $color-base-white;
-    clip-path: circle(50%);
+    -webkit-clip-path: circle(50%);
     width: $icon-large;
     height: $icon-large;
     fill: $color-grey-dark;
