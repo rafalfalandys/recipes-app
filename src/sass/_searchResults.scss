@@ -20,7 +20,7 @@
 .results-and-btns {
   display: flex;
   flex-direction: column;
-  transition: all 0.4s;
+  -webkit-transition: -webkit-transform 0.4s;
   height: 100%;
 
   @media only screen and (max-width: $break-phone) {
@@ -36,7 +36,6 @@
 
 .moved {
   @media only screen and (max-width: $break-phone) {
-    transition: all 0.4s;
     transform: translateX(-100%);
     svg {
       transform: translate(70%) rotate(180deg);
