@@ -15,9 +15,10 @@
   &__container {
     transition: all 0.4s;
     z-index: 11;
-    width: 70vw;
+    // width: $max-width;
+    min-width: 85vw;
     max-width: $max-width;
-    min-height: 40rem;
+    // min-height: 40rem;
     position: fixed;
     background-color: $color-base-white;
     top: 50%;
@@ -25,9 +26,16 @@
     transform: translate(-50%, -50%);
     border-radius: $border-radius;
     box-shadow: 10px 10px 10px rgba(black, 0.5);
+
+    @media only screen and (max-width: $break-phone) {
+      width: 100%;
+      // height: $height-phone;
+    }
   }
+
   padding: 3rem 5rem;
   position: relative;
+  max-width: 95vw;
 
   display: grid;
   gap: 2rem;
@@ -35,8 +43,17 @@
   grid-template-rows: 1fr 7rem;
   align-items: start;
 
+  @media only screen and (max-width: $break-phone) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 6rem;
+    // max-width: 100vw;
+    margin: auto;
+    padding: 3rem 3rem;
+  }
+
   .column {
     display: grid;
+    // width: 30rem;
     align-items: center;
     align-content: start;
     gap: 1rem;
@@ -75,6 +92,7 @@
       }
 
       input {
+        min-width: 17rem;
         padding: 0.5rem 1.5rem;
       }
     }
@@ -115,7 +133,7 @@
     align-self: end;
     display: flex;
     justify-content: center;
-    grid-column: 1/3;
+    grid-column: 1/-1;
   }
 
   .btn--close {

@@ -13,14 +13,19 @@ $font-medium: 1.6rem;
 $font-large: 2.4rem;
 $font-large-very: 3.6rem;
 
+$margin-main: 1.5rem;
+
 $border-radius-small: 2px;
 $border-radius: 4px;
 
-$icon-small: 1.7rem;
+// $icon-small: 1.7rem;
+$icon-small: 17px;
 $icon-medium: 2rem;
 $icon-large: 3rem;
 
-$max-width: 90rem;
+$max-width: 100rem;
+$height-phone: 84vh;
+$height-header: 6.5rem;
 
 $break-phone: 650px;
 $break-tablet: 800px;
@@ -63,7 +68,7 @@ body {
   min-height: calc(100vh - 3rem);
   max-width: $max-width;
 
-  margin: 1.5rem auto;
+  margin: $margin-main auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: auto 1fr;
@@ -73,8 +78,9 @@ body {
   // gap: 2rem;
 
   @media only screen and (max-width: $break-tablet) {
-    min-height: 84vh;
-    width: 95vw;
+    min-height: $height-phone;
+    width: 100vw;
+    margin: 0;
     // width: 100%;
   }
   @media only screen and (max-width: $break-phone) {

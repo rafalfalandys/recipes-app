@@ -21,6 +21,7 @@
   padding: 1.5rem;
   font-size: $font-smallest;
   position: relative;
+  height: $height-header;
   p {
     color: $color-grey;
     @media only screen and (max-width: $break-phone) {

@@ -74,10 +74,10 @@ class RecipeView extends View {
             </svg>
             <span class="recipe__info--data">${data.servings}</span>
             <span class="recipe__info--text">&nbsp;servings</span>
-            <svg class="icon--tiny icon--minus icon--hover icon--hover serving-btn">
+            <svg class="icon--tiny icon--minus hover serving-btn">
               <use xlink:href="${icons}#icon-minus-outline"></use>
             </svg>
-            <svg class="icon--tiny icon--plus icon--hover serving-btn">
+            <svg class="icon--tiny icon--plus hover serving-btn">
               <use xlink:href="${icons}#icon-add-outline"></use>
             </svg>
           </div>
@@ -86,7 +86,7 @@ class RecipeView extends View {
             <svg class="icon--tiny">
               <use xlink:href="${icons}#icon-user"></use>
             </svg>
-            <svg class="icon--tiny icon--bookmark icon--hover">
+            <svg class="icon--tiny icon--bookmark hover">
               <use xlink:href="${icons}#icon-bookmark${
       data.isBookmarked ? "" : "-outline"
     }"></use>
