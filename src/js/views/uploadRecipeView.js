@@ -1,4 +1,3 @@
-import { mark } from "regenerator-runtime";
 import View from "./view.js";
 import icons from "url:../../img/sprite.svg";
 
