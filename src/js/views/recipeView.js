@@ -83,9 +83,7 @@ class RecipeView extends View {
           </div>
 
           <div class="recipe--buttons">
-            <svg class="icon--tiny">
-              <use xlink:href="${icons}#icon-user"></use>
-            </svg>
+           
             <svg class="icon--tiny icon--bookmark hover">
               <use xlink:href="${icons}#icon-bookmark${
       data.isBookmarked ? "" : "-outline"
@@ -128,3 +126,10 @@ class RecipeView extends View {
 }
 
 export default new RecipeView();
+
+// cutout from line 86
+{
+  /* <svg class="icon--tiny">
+<use xlink:href="${icons}#icon-user"></use>
+</svg> */
+}
