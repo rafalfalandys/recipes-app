@@ -28,6 +28,7 @@ $height-phone: 84vh;
 $height-header: 6.5rem;
 $height-footer: 3rem;
 
+$break-phone-tiny: 370px;
 $break-phone: 650px;
 $break-tablet: 800px;
 
@@ -40,6 +41,9 @@ html {
   }
   @media only screen and (max-width: $break-phone) {
     // font-size: 62.5%;
+  }
+  @media only screen and (max-width: $break-phone-tiny) {
+    font-size: 37.5%;
   }
 }
 
